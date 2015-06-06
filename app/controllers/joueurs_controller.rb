@@ -15,6 +15,7 @@ class JoueursController < ApplicationController
   # GET /joueurs/new
   def new
     @joueur = Joueur.new
+    @joueur.categories.build
   end
 
   # GET /joueurs/1/edit
@@ -25,6 +26,9 @@ class JoueursController < ApplicationController
   # POST /joueurs.json
   def create
     @joueur = Joueur.new(joueur_params)
+    Category.all.each do |category|
+      tmp = JoueurCategory.create category: category, joueur: @joueur, elo: 1200
+    end
 
     respond_to do |format|
       if @joueur.save

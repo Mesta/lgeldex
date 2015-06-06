@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<%= pageTitle "Catégorie", "Détails" %>
 
 <p>
   <strong>Nom:</strong>
@@ -10,5 +10,5 @@
   <%= @category.question %>
 </p>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<%= link_to 'Modifier', edit_category_path(@category), class: 'btn btn-default' %>
+<%= link_to 'Retour', categories_path, class: 'btn btn-default' %>

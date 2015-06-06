@@ -10,3 +10,6 @@ Joueur.create pseudo: 'Mesta', is_active: true
 Joueur.create pseudo: 'Vora', is_active: true
 Joueur.create pseudo: 'Margotier', is_active: false
 Joueur.create pseudo: 'Marie', is_active: true
+
+Category.create nom: 'Loup', question: 'Qui a les dents les plus longues ?'
+Category.create nom: 'Innocent', question: 'Qui est le plus innocent ?'
