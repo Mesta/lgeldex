@@ -18,7 +18,7 @@ class JoueursControllerTest < ActionController::TestCase
 
   test "should create joueur" do
     assert_difference('Joueur.count') do
-      post :create, joueur: {  }
+      post :create, joueur: { is_active: @joueur.is_active, pseudo: @joueur.pseudo }
     end
 
     assert_redirected_to joueur_path(assigns(:joueur))
@@ -35,7 +35,7 @@ class JoueursControllerTest < ActionController::TestCase
   end
 
   test "should update joueur" do
-    patch :update, id: @joueur, joueur: {  }
+    patch :update, id: @joueur, joueur: { is_active: @joueur.is_active, pseudo: @joueur.pseudo }
     assert_redirected_to joueur_path(assigns(:joueur))
   end
 

@@ -28,7 +28,7 @@ class JoueursController < ApplicationController
 
     respond_to do |format|
       if @joueur.save
-        format.html { redirect_to @joueur, notice: 'Joueur was successfully created.' }
+        format.html { redirect_to @joueur, notice: 'Le joueur a été créé avec succès.' }
         format.json { render :show, status: :created, location: @joueur }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class JoueursController < ApplicationController
   def update
     respond_to do |format|
       if @joueur.update(joueur_params)
-        format.html { redirect_to @joueur, notice: 'Joueur was successfully updated.' }
+        format.html { redirect_to @joueur, notice: 'Les informations ont été mises à jour.' }
         format.json { render :show, status: :ok, location: @joueur }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class JoueursController < ApplicationController
   def destroy
     @joueur.destroy
     respond_to do |format|
-      format.html { redirect_to joueurs_url, notice: 'Joueur was successfully destroyed.' }
+      format.html { redirect_to joueurs_url, notice: 'Le joueur a été supprimé.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,6 @@ class JoueursController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def joueur_params
-      params[:joueur]
+      params.require(:joueur).permit(:pseudo, :is_active)
     end
 end

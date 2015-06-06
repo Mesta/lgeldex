@@ -1,17 +1,21 @@
-<%= form_for(@joueur) do |f| %>
-  <% if @joueur.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@joueur.errors.count, "error") %> prohibited this joueur from being saved:</h2>
+<%= bootstrap_form_for @joueur do |f| %>
+    <% if @joueur.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@joueur.errors.count, "error") %> prohibited this joueur from being saved:</h2>
 
-      <ul>
-      <% @joueur.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <ul>
+            <% @joueur.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+    <%= f.text_field :pseudo %>
+
+    <%= f.check_box :is_active, label: "Compte actif ?" %>
+
+    <%= f.submit "Valider", class: 'btn btn-primary' %>
+    <%= link_to "Retour", joueurs_path, class: 'btn btn-default' %>
 <% end %>

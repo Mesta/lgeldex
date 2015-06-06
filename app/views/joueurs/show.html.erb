@@ -1,4 +1,18 @@
-<p id="notice"><%= notice %></p>
+<%= pageTitle "Joueurs", "Détails" %>
 
-<%= link_to 'Edit', edit_joueur_path(@joueur) %> |
-<%= link_to 'Back', joueurs_path %>
+<p>
+  <strong>Pseudo:</strong>
+  <%= @joueur.pseudo %>
+</p>
+
+<p>
+  <strong>Compte actif ?</strong>
+  <% if @joueur.is_active %>
+      Oui
+  <% else %>
+      Non
+  <% end %>
+</p>
+
+<%= link_to 'Modifier', edit_joueur_path(@joueur), class: 'btn btn-default' %>
+<%= link_to 'Retour', joueurs_path, class: 'btn btn-default' %>

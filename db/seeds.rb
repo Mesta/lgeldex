@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Joueur.create pseudo: 'Mesta', is_active: true
+Joueur.create pseudo: 'Vora', is_active: true
+Joueur.create pseudo: 'Margotier', is_active: false
+Joueur.create pseudo: 'Marie', is_active: true
