@@ -1,7 +1,9 @@
 module ApplicationHelper
-  def pageTitle (main_title, sub_title)
-    output='<div class="page-header"><h1>'+main_title
-    output += '<br/><small>'+sub_title+'</small>'
+  def pageTitle (main_title, sub_title = "")
+    output='<div class="page-header"><h1>' + main_title
+    if not sub_title.blank?
+      output += '<br/><small>'+sub_title+'</small>'
+    end
     output += '</h1></div>'
     return output.html_safe
   end

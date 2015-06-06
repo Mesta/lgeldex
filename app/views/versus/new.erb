@@ -1,0 +1,11 @@
+<%= pageTitle "Versus !" %>
+
+<%= bootstrap_form_for @versus, url: versus_path, method: :post do |f| %>
+    <%= @versus.categorie.question %>
+
+    <%= f.radio_button :choix, @versus.joueurs[0].id, label: @versus.joueurs[0].pseudo %>
+    <%= f.radio_button :choix, @versus.joueurs[1].id, label: @versus.joueurs[1].pseudo %>
+
+    <%= f.submit "Voter", class: "btn btn-success" %>
+    <%= link_to "Passer", versus_path, class: "btn btn-default" %>
+<% end %>
