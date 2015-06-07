@@ -10,6 +10,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
+    @classements = JoueurCategory.where(category_id: @category.id ).order(elo: :DESC)
   end
 
   # GET /categories/new
