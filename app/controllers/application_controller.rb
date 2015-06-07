@@ -4,6 +4,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def accueil
+    reset_session
+  end
+
+  def classements
+    @classements = Array.new
+    categories = Category.all
+    categories.each do |category|
+      @classements.push(JoueurCategory.where(category_id: category.id).order(elo: :DESC))
+    end
+
   end
 
   def about
