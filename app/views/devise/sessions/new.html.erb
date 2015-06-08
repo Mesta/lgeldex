@@ -1,0 +1,18 @@
+<%= pageTitle "Se connecter" %>
+
+<%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= f.email_field :email, autofocus: true %>
+
+    <%= f.password_field :password, autocomplete: "off", label: "Mot de passe" %>
+
+    <% if devise_mapping.rememberable? %>
+
+        <%= f.check_box :remember_me, label: "Se souvenir de moi" %>
+
+    <% end %>
+
+    <%= f.submit "Se connecter" %>
+    <%= render "devise/shared/links" %>
+<% end %>
+
+

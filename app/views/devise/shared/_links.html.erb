@@ -1,0 +1,11 @@
+<%- if controller_name != 'sessions' %>
+  <%= link_to "Se connecter", new_session_path(resource_name), class: 'btn btn-default' %>
+<% end -%>
+
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+  <%= link_to "Mot de passe perdu", new_password_path(resource_name) %>
+<% end -%>
+
+<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+  <%= link_to "Je n'ai pas reçu le mail de débloquage de mon compte", new_unlock_path(resource_name) %>
+<% end -%>

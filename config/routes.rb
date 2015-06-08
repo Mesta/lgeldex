@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  resources :categories
 
+  # TODO Nettoyer routes devise
+  devise_for :admins
+  resources :admins
+  resources :categories
   resources :joueurs
 
   get   'versus', to: 'versus#new', as: 'versus'

@@ -16,6 +16,8 @@
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
+        <% if admin_signed_in? %>
+
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administration
               <span class="caret"></span></a>
@@ -28,11 +30,15 @@
               <li><%= link_to "Les joueurs", joueurs_path %></li>
               <li><%= link_to "Les catérogies", categories_path %></li>
               <li class="divider"></li>
-              <li><a href="#">Déconnexion</a></li>
+              <li><%= link_to "Déconnexion", destroy_admin_session_path, method: :delete %></li>
             </ul>
-
           </li>
+
+        <% else %>
+            <li><%= link_to "Se connecter", new_admin_session_path %></li>
+        <% end %>
         </ul>
+
 
       </div>
 

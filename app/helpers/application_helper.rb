@@ -28,7 +28,9 @@ module ApplicationHelper
     output = '<ul class="ressource-action-links list-inline">'
     output += ' <li>' + showLink(showPath).html_safe + '</li>'
     output += ' <li>' + editLink(editPath).html_safe + '</li>'
-    output += ' <li>' + destroyLink(ressource).html_safe + '</li>'
+    if not ressource.nil?
+      output += ' <li>' + destroyLink(ressource).html_safe + '</li>'
+    end
     output += '</ul>'
     return output.html_safe
   end

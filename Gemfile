@@ -30,6 +30,8 @@ gem 'therubyracer',  platforms: :ruby
 
 gem 'virtus'
 
+gem 'devise'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

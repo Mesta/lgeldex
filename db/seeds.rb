@@ -22,3 +22,5 @@ JoueurCategory.create joueur: j1, category: c2, elo: 1294
 JoueurCategory.create joueur: j2, category: c2, elo: 1463
 JoueurCategory.create joueur: j3, category: c2, elo: 1354
 JoueurCategory.create joueur: j4, category: c2, elo: 1672
+
+Admin.create! email: "mesta@test.fr", password: "test1234", password_confirmation: "test1234"

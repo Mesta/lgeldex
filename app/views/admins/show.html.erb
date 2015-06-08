@@ -1,0 +1,10 @@
+<%= pageTitle "Administrateur", "Détails" %>
+
+<p>
+  <strong>Email :</strong>
+  <%= @admin.email %>
+</p>
+
+<%= link_to 'Modifier', edit_admin_path(@admin), class: 'btn btn-default' %>
+<%= link_to 'Retour', admins_path, class: 'btn btn-default' %>
+

@@ -1,6 +1,7 @@
 class VersusController < ApplicationController
 
   def new
+
     @versus = VersusForm.new
     session[:current_user_id] = [ @versus.categorie.id, @versus.joueur_1.id, @versus.joueur_2.id ]
   end
