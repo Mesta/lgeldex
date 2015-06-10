@@ -9,8 +9,6 @@
 j = Array.new
 j.push(Joueur.create pseudo: 'Mesta'    , is_active: true )
 j.push(Joueur.create pseudo: 'Vora'     , is_active: true )
-j.push(Joueur.create pseudo: 'Margotier', is_active: false)
-j.push(Joueur.create pseudo: 'Marie'    , is_active: true )
 
 c = Array.new
 c.push(Category.create nom: 'Loup'          , question: 'Qui a les dents les plus longues ?')
@@ -29,4 +27,4 @@ j.each do |jn|
   end
 end
 
-Admin.create! email: "mesta@test.fr", password: "test1234", password_confirmation: "test1234"
+Admin.create! email: "aruno_black@hotmail.fr", password: "12Vorap%Da6Beast#", password_confirmation: "12Vorap%Da6Beast#"
