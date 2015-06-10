@@ -70,11 +70,30 @@ class VersusForm
 
     #Calculate new elo score depending who the vote gone for
     if (self.choix == self.joueur_1.id)
-      elo_joueur_1 = elo_joueur_1 + getK(elo_joueur_1) * (1 - estimation_1)
-      elo_joueur_2 = elo_joueur_2 + getK(elo_joueur_2) * (0 - estimation_2)
+      var_1 = getK(elo_joueur_1) * (1 - estimation_1)
+      var_2 = getK(elo_joueur_2) * (0 - estimation_2)
+      if var_1 > 25
+        var_1 = 25
+      end
+
+      if var_2 > 25
+        var_2 = 25
+      end
+
+      elo_joueur_1 = elo_joueur_1 + var_1
+      elo_joueur_2 = elo_joueur_2 + var_2
     else
-      elo_joueur_1 = elo_joueur_1 + getK(elo_joueur_1) * (0 - estimation_1)
-      elo_joueur_2 = elo_joueur_2 + getK(elo_joueur_2) * (1 - estimation_2)
+      var_1 = getK(elo_joueur_1) * (0 - estimation_1)
+      var_2 = getK(elo_joueur_2) * (1 - estimation_2)
+      if var_1 > 25
+        var_1 = 25
+      end
+
+      if var_2 > 25
+        var_2 = 25
+      end
+      elo_joueur_1 = elo_joueur_1 + var_1
+      elo_joueur_2 = elo_joueur_2 + var_2
     end
 
     # Update elo score in database

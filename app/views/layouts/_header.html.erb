@@ -11,6 +11,7 @@
 
           <li><%= link_to "Versus", versus_path %></li>
           <li><%= link_to "Classements", classements_path %></li>
+          <li><%= link_to "Suggérer", new_suggestion_path %></li>
 
           <li><%= link_to "A propos", about_path %></li>
         </ul>
@@ -24,10 +25,12 @@
 
             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
               <li role="presentation" class="dropdown-header">Gestion des comptes</li>
-              <li><a href="#">Administrateurs</a></li>
+              <li><%= link_to "Administrateurs", admins_path %></a></li>
 
               <li class="divider"></li>
               <li><%= link_to "Les joueurs", joueurs_path %></li>
+              <li><%= link_to "Les suggestions", suggestions_path %></li>
+              <li class="divider"></li>
               <li><%= link_to "Les catérogies", categories_path %></li>
               <li class="divider"></li>
               <li><%= link_to "Déconnexion", destroy_admin_session_path, method: :delete %></li>

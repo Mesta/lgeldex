@@ -1,35 +1,35 @@
 <%= pageTitle "Classements" %>
 
+
 <% @classements.each do |categories| %>
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <ul class="list-inline panel-links" style="text-align:center;">
+            <li><h2><%= categories[0].category.nom %></h2></li>
+          </ul>
+        </div>
+        <div class="panel-body">
+          <table class="table table-hover table-stripped table-condensed">
+            <thead>
+            <tr>
+              <th></th>
+              <th>Pseudo</th>
+            </tr>
+            </thead>
 
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <ul class="list-inline panel-links" style="text-align:center;">
-          <li><h2><%= categories[0].category.nom %></h2></li>
-        </ul>
-      </div>
-      <div class="panel-body">
-        <table class="table table-hover table-stripped table-condensed">
-          <thead>
-          <tr>
-            <th></th>
-            <th>Pseudo</th>
-            <th>Elo</th>
-          </tr>
-          </thead>
-
-          <tbody>
-          <% cpt = 1 %>
-          <% categories.each do |category| %>
-              <tr>
-                <td>#<%= cpt %></td>
-                <td><%= category.joueur.pseudo %></td>
-                <td><%= category.elo %></td>
-              </tr>
-              <% cpt = cpt + 1 %>
-          <% end %>
-          </tbody>
-        </table>
+            <tbody>
+            <% cpt = 1 %>
+            <% categories.each do |category| %>
+                <tr>
+                  <td>#<%= cpt %></td>
+                  <td><%= category.joueur.pseudo %></td>
+                </tr>
+                <% cpt = cpt + 1 %>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
 <% end %>

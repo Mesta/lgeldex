@@ -6,21 +6,27 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-j1 = Joueur.create pseudo: 'Mesta', is_active: true
-j2 = Joueur.create pseudo: 'Vora', is_active: true
-j3 = Joueur.create pseudo: 'Margotier', is_active: false
-j4 = Joueur.create pseudo: 'Marie', is_active: true
+j = Array.new
+j.push(Joueur.create pseudo: 'Mesta'    , is_active: true )
+j.push(Joueur.create pseudo: 'Vora'     , is_active: true )
+j.push(Joueur.create pseudo: 'Margotier', is_active: false)
+j.push(Joueur.create pseudo: 'Marie'    , is_active: true )
 
-c1 = Category.create nom: 'Loup', question: 'Qui a les dents les plus longues ?'
-c2 = Category.create nom: 'Innocent', question: 'Qui est le plus innocent ?'
+c = Array.new
+c.push(Category.create nom: 'Loup'          , question: 'Qui a les dents les plus longues ?')
+c.push(Category.create nom: 'Innocent'      , question: 'Qui est le plus innocent ?')
+c.push(Category.create nom: 'Pseudo'        , question: 'Qui a le meilleur pseudo ?')
+c.push(Category.create nom: 'Popularité'    , question: 'Quel est le joueur le plus populaire ?')
+c.push(Category.create nom: 'Spécialité'    , question: 'Qui joue la meilleur spécialité ?')
+c.push(Category.create nom: 'Argumentateur' , question: 'Qui est le plus convaincant ?')
+c.push(Category.create nom: 'Invisible'     , question: 'Lequel de ces joueurs est le plus invisible ?')
+c.push(Category.create nom: 'Sale'          , question: "Lequel de ces joueurs est le plus sale ?")
+c.push(Category.create nom: 'Présent'       , question: 'Quel est le joueur le plus présent ?')
 
-JoueurCategory.create joueur: j1, category: c1, elo: 1178
-JoueurCategory.create joueur: j2, category: c1, elo: 1674
-JoueurCategory.create joueur: j3, category: c1, elo: 1823
-JoueurCategory.create joueur: j4, category: c1, elo: 1145
-JoueurCategory.create joueur: j1, category: c2, elo: 1294
-JoueurCategory.create joueur: j2, category: c2, elo: 1463
-JoueurCategory.create joueur: j3, category: c2, elo: 1354
-JoueurCategory.create joueur: j4, category: c2, elo: 1672
+j.each do |jn|
+  c.each do |cn|
+    JoueurCategory.create joueur: jn, category: cn, elo: 1200
+  end
+end
 
 Admin.create! email: "mesta@test.fr", password: "test1234", password_confirmation: "test1234"

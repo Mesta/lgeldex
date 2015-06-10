@@ -34,6 +34,11 @@ class JoueursController < ApplicationController
 
     respond_to do |format|
       if @joueur.save
+        sugg = Suggestion.where(pseudo: joueur_params["pseudo"]).first
+        if not sugg.blank?
+          sugg.destroy
+        end
+
         format.html { redirect_to @joueur, notice: 'Le joueur a été créé avec succès.' }
         format.json { render :show, status: :created, location: @joueur }
       else

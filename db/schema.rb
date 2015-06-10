@@ -53,4 +53,10 @@ ActiveRecord::Schema.define(version: 20150608105030) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "suggestions", force: :cascade do |t|
+    t.string   "pseudo",     limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
 end
