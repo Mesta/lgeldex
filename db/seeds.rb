@@ -6,9 +6,21 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+pseudos = ["Absys", "Acmefish", "Act", "Algor", "Animarthur", "Anniouchka", "antoinehar", "Anyah", "Appolina",
+           "August", "Baloolours", "Blaked", "Bovin", "Breathease", "Bubu", "Callye", "Daphedel", "Desperefra",
+           "Deusgladis", "Dingo", "Disturbed", "Easton", "Enayrlay", "Egerie", "Regence", "Eldone", "Eydoole",
+           "Ewells", "Eye", "Freia", "Furst", "Gabouuu", "Georgi", "Grisby", "Hachinesse", "Ikas",
+           "Jamijams", "Kallan", "Katakani", "Kaynes", "Keyman", "Klashnikov", "Komie", "Kractus", "Ksys", "Kygo",
+           "Liah", "Libertaire", "Lisouille", "Lukee", "Lycanmoi", "Lycano", "Malmhaus", "Manngue", "Margauw",
+           "Milenko", "Moscow", "Nebbu", "Offset", "Ollyun", "Oxyde", "Patchenkoo", "Praskovia", "Preda", "Rejane",
+           "Rickasley", "Ricks", "Rinaa", "Schizof", "Schkru", "Serleenaa", "Srie", "Stecat", "Slydenko", "Tallowisp",
+           "Strident", "Togame", "Vegeta", "Worldclass", "Yes"]
+
 j = Array.new
-j.push(Joueur.create pseudo: 'Mesta'    , is_active: true )
-j.push(Joueur.create pseudo: 'Vora'     , is_active: true )
+
+pseudos.each do |pseudo|
+  j.push(Joueur.create pseudo: pseudo    , is_active: true )
+end
 
 c = Array.new
 c.push(Category.create nom: 'Loup'          , question: 'Qui a les dents les plus longues ?')
