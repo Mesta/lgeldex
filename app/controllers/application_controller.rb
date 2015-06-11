@@ -10,9 +10,8 @@ class ApplicationController < ActionController::Base
     @classements = Array.new
     categories = Category.all
     categories.each do |category|
-      @classements.push(JoueurCategory.where(category_id: category.id).order(elo: :DESC))
+      @classements.push(JoueurCategory.where(category_id: category.id).order(elo: :DESC).first(60))
     end
-
   end
 
   def about

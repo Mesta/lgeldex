@@ -7,13 +7,24 @@ class VersusForm
   attr_accessor :joueur_2
   attr_accessor :choix
 
+  attr_accessor :is_serious
+
   validates_presence_of :categorie
   validates_presence_of :joueurs
 
-  def initialize(categorie = nil, joueurs = {})
+  def initialize(is_serious)
+    self.is_serious = is_serious
+  end
+
+  def config(categorie = nil, joueurs = {})
 
     if categorie.nil?
-      self.categorie = Category.order("rand()").first()
+      if self.is_serious
+        self.categorie = Category.where(is_serious: self.is_serious).order("rand()").first()
+      else
+        self.categorie = Category.order("rand()").first()
+      end
+
     else
       self.categorie = Category.find(categorie)
     end
@@ -27,7 +38,6 @@ class VersusForm
       self.joueur_1 = Joueur.find(joueurs[0])
       self.joueur_2 = Joueur.find(joueurs[1])
     end
-
   end
 
   def update(params)
@@ -46,11 +56,13 @@ class VersusForm
   end
 
   def is_valid?
+    retour = false
     if [self.joueur_1.id, self.joueur_2.id].include? self.choix
-      return true
+      retour = true
     else
-      return false
+      retour = false
     end
+    return retour
   end
 
   def update_elo

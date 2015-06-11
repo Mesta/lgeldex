@@ -38,8 +38,8 @@ body {
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
 
-body > .container {
-  padding: 60px 15px 30px;
+body {
+  padding: 60px 0px 30px;
 }
 
 .page-header{
@@ -67,4 +67,8 @@ code {
 
 h1{
   margin-top: 0px
+}
+
+.categorie{
+  margin-top:30px;
 }

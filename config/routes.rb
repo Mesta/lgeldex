@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   get  'suggerer', to: 'suggestions#new'   , as: 'new_suggestion'
   post 'suggerer', to: 'suggestions#create', as: 'create_suggestion'
 
+  get  'versus/configuration', to: 'versus_config#new', as: 'versus_config'
+  post 'versus/configuration', to: 'versus_config#create'
+
   get  'versus', to: 'versus#new', as: 'versus'
   post 'versus', to: 'versus#create'
 

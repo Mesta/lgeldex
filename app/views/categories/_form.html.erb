@@ -14,6 +14,8 @@
     <%= f.text_field :nom %>
     <%= f.text_field :question %>
 
+    <%= f.check_box :is_serious, label: "Serious business ?" %>
+
     <%= f.submit "Valider", class: 'btn btn-primary' %>
     <%= link_to "Retour", categories_path, class: 'btn btn-default' %>
 

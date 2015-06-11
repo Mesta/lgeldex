@@ -1,0 +1,9 @@
+<div class="text-center">
+    <%= pageTitle "Versus", "Configuration" %>
+</div>
+
+<%= bootstrap_form_for @versus_config, url: versus_config_path, method: :post, html: {class: 'text-center'} do |f| %>
+    <%= f.check_box :is_serious, label: "Serious business ?" %>
+    <br/>
+    <%= f.submit "Valider", class: "btn btn-success btn-lg" %>
+<% end %>

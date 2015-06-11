@@ -1,3 +1,4 @@
+<div class="container">
 <%= pageTitle "Catégorie", "Détails" %>
 
 <p>
@@ -9,6 +10,12 @@
   <strong>Question:</strong>
   <%= @category.question %>
 </p>
+
+<% if @category.is_serious %>
+  <p>Cette catégorie est sérieuse.</p>
+<% else %>
+  <p>Cette catégorie n'est pas sérieuse.</p>
+<% end %>
 
 <%= link_to 'Modifier', edit_category_path(@category), class: 'btn btn-default' %>
 <%= link_to 'Retour', categories_path, class: 'btn btn-default' %>
@@ -40,4 +47,5 @@
       </tbody>
     </table>
   </div>
+</div>
 </div>

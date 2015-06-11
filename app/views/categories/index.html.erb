@@ -1,30 +1,40 @@
-<%= pageTitle 'Catégories', 'Liste' %>
+<div class="container">
+  <%= pageTitle 'Catégories', 'Liste' %>
 
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <ul class="list-inline panel-links" style="text-align:right;">
-      <li><%= link_to 'Nouveau', new_category_path, :class => 'btn btn-info', :title => "Ajouter une catégorie" %></li>
-    </ul>
-  </div>
-  <div class="panel-body">
-    <table class="table table-hover table-stripped table-condensed">
-  <thead>
-    <tr>
-      <th>Nom</th>
-      <th>Question</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.nom %></td>
-        <td><%= category.question %></td>
-        <td align="right"><%= ressourceActionLinks category, category_path(category), edit_category_path(category) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <ul class="list-inline panel-links" style="text-align:right;">
+        <li><%= link_to 'Nouveau', new_category_path, :class => 'btn btn-info', :title => "Ajouter une catégorie" %></li>
+      </ul>
     </div>
+    <div class="panel-body">
+      <table class="table table-hover table-stripped table-condensed">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Question</th>
+        <th>Serious business ?</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @categories.each do |category| %>
+        <tr>
+          <td><%= category.nom %></td>
+          <td><%= category.question %></td>
+          <td>
+            <% if category.is_serious %>
+              Oui
+            <% else %>
+              Non
+            <% end %>
+          </td>
+          <td align="right"><%= ressourceActionLinks category, category_path(category), edit_category_path(category) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+      </div>
+  </div>
 </div>

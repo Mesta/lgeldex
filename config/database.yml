@@ -3,14 +3,21 @@ default: &default
   encoding: utf8
   pool: 5
   host: 127.0.0.1
-  database: lgelmash
 
 development:
   <<: *default
+  database: lgelmash_devel
+  username: root
+  password: root
+
+test:
+  <<: *default
+  database: lgelmash_test
   username: root
   password: root
 
 production:
   <<: *default
+  database: lgelmash
   username: root
   password: PPbH%NeQ2.acqd

@@ -23,15 +23,15 @@ pseudos.each do |pseudo|
 end
 
 c = Array.new
-c.push(Category.create nom: 'Loup'          , question: 'Qui a les dents les plus longues ?')
-c.push(Category.create nom: 'Innocent'      , question: 'Qui est le plus innocent ?')
-c.push(Category.create nom: 'Pseudo'        , question: 'Qui a le meilleur pseudo ?')
-c.push(Category.create nom: 'Popularité'    , question: 'Quel est le joueur le plus populaire ?')
-c.push(Category.create nom: 'Spécialité'    , question: 'Qui joue la meilleur spécialité ?')
-c.push(Category.create nom: 'Argumentateur' , question: 'Qui est le plus convaincant ?')
-c.push(Category.create nom: 'Invisible'     , question: 'Lequel de ces joueurs est le plus invisible ?')
-c.push(Category.create nom: 'Sale'          , question: "Lequel de ces joueurs est le plus sale ?")
-c.push(Category.create nom: 'Présent'       , question: 'Quel est le joueur le plus présent ?')
+c.push(Category.create nom: 'Loup'          , question: 'Qui a les dents les plus longues ?', is_serious: true)
+c.push(Category.create nom: 'Innocent'      , question: 'Qui est le plus innocent ?', is_serious: true)
+c.push(Category.create nom: 'Pseudo'        , question: 'Qui a le meilleur pseudo ?', is_serious: false)
+c.push(Category.create nom: 'Popularité'    , question: 'Quel est le joueur le plus populaire ?', is_serious: false)
+c.push(Category.create nom: 'Spécialité'    , question: 'Qui joue la meilleur spécialité ?', is_serious: true)
+c.push(Category.create nom: 'Argumentateur' , question: 'Qui est le plus convaincant ?', is_serious: true)
+c.push(Category.create nom: 'Invisible'     , question: 'Lequel de ces joueurs est le plus invisible ?', is_serious: false)
+c.push(Category.create nom: 'Sale'          , question: "Lequel de ces joueurs est le plus sale ?", is_serious: false)
+c.push(Category.create nom: 'Présent'       , question: 'Quel est le joueur le plus présent ?', is_serious: false)
 
 j.each do |jn|
   c.each do |cn|
