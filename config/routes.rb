@@ -24,7 +24,5 @@ Rails.application.routes.draw do
 
   get 'classements', to: 'application#classements', as: 'classements'
 
-  get 'a-propos', to: 'application#about', as: 'about'
-
   root to: 'application#accueil'
 end
