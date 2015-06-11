@@ -14,4 +14,3 @@ production:
   <<: *default
   username: root
   password: PPbH%NeQ2.acqd
-
