@@ -29,7 +29,13 @@
 
               <li class="divider"></li>
               <li><%= link_to "Les joueurs", joueurs_path %></li>
-              <li><%= link_to "Les suggestions", suggestions_path %></li>
+              <li>
+                <%= link_to suggestions_path do %>
+                    Les suggestions
+                    <span class="badge"><%= Suggestion.all.count %></span>
+                <% end %>
+
+              </li>
               <li class="divider"></li>
               <li><%= link_to "Les catérogies", categories_path %></li>
               <li class="divider"></li>
