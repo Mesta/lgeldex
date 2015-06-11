@@ -1,47 +1,49 @@
-<%= pageTitle "Joueurs", "Détails" %>
+<div class="container">
+  <%= pageTitle "Joueurs", "Détails" %>
 
-<p>
-  <strong>Pseudo:</strong>
-  <%= @joueur.pseudo %>
-</p>
+  <p>
+    <strong>Pseudo:</strong>
+    <%= @joueur.pseudo %>
+  </p>
 
-<p>
-  <strong>Compte actif ?</strong>
-  <% if @joueur.is_active %>
-      Oui
-  <% else %>
-      Non
-  <% end %>
-</p>
+  <p>
+    <strong>Compte actif ?</strong>
+    <% if @joueur.is_active %>
+        Oui
+    <% else %>
+        Non
+    <% end %>
+  </p>
 
-<%= link_to 'Modifier', edit_joueur_path(@joueur), class: 'btn btn-default' %>
-<%= link_to 'Retour', joueurs_path, class: 'btn btn-default' %>
+  <%= link_to 'Modifier', edit_joueur_path(@joueur), class: 'btn btn-default' %>
+  <%= link_to 'Retour', joueurs_path, class: 'btn btn-default' %>
 
-<hr/>
+  <hr/>
 
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <ul class="list-inline panel-links" style="text-align:left;">
-      <li><h1 style="padding:0px;margin:0px"><small>Classement</small></h1></li>
-    </ul>
-  </div>
-  <div class="panel-body">
-    <table class="table table-hover table-stripped table-condensed">
-      <thead>
-      <tr>
-        <th>Pseudo</th>
-        <th>Elo</th>
-      </tr>
-      </thead>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <ul class="list-inline panel-links" style="text-align:left;">
+        <li><h1 style="padding:0px;margin:0px"><small>Classement</small></h1></li>
+      </ul>
+    </div>
+    <div class="panel-body">
+      <table class="table table-hover table-stripped table-condensed">
+        <thead>
+        <tr>
+          <th>Pseudo</th>
+          <th>Elo</th>
+        </tr>
+        </thead>
 
-      <tbody>
-      <% @classements.each do |classement| %>
-          <tr>
-            <td><%= link_to classement.category.nom, classement.category %></td></td>
-            <td><%= classement.elo %></td>
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
+        <tbody>
+        <% @classements.each do |classement| %>
+            <tr>
+              <td><%= link_to classement.category.nom, classement.category %></td></td>
+              <td><%= classement.elo %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

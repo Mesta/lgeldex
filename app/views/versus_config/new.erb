@@ -1,9 +1,23 @@
 <div class="text-center">
-    <%= pageTitle "Versus", "Configuration" %>
+  <%= pageTitle "Versus", "Configuration" %>
 </div>
 
 <%= bootstrap_form_for @versus_config, url: versus_config_path, method: :post, html: {class: 'text-center'} do |f| %>
-    <%= f.check_box :is_serious, label: "Serious business ?" %>
+    <%= f.check_box :is_serious do %>
+        Serious business
+        <span class="has-hover" data-toggle="tooltip" title="Ne voter que pour les catégories dites sérieuses
+            <% Category.where(is_serious: true).each do |cat| %>
+                - <%= cat.nom %>
+            <% end %>">
+        <i class="glyphicon glyphicon-question-sign"></i>
+        </span>
+    <% end %>
+
+
+
     <br/>
+
     <%= f.submit "Valider", class: "btn btn-success btn-lg" %>
 <% end %>
+
+<script>$(".has-hover").tooltip({placement: "bottom"});</script>

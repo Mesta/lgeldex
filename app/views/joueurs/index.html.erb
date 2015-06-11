@@ -1,36 +1,39 @@
-<%= pageTitle 'Joueurs', 'Liste' %>
+<div class="container">
 
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <ul class="list-inline panel-links" style="text-align:right;">
-      <li><%= link_to 'Nouveau', new_joueur_path, :class => 'btn btn-info', :title => "Ajouter un joueur" %></li>
-    </ul>
-  </div>
-  <div class="panel-body">
-    <table class="table table-hover table-stripped table-condensed">
-      <thead>
-      <tr>
-        <th>Pseudo</th>
-        <th>Est actif ?</th>
-        <th></th>
-      </tr>
-      </thead>
+  <%= pageTitle 'Joueurs', 'Liste' %>
 
-      <tbody>
-      <% @joueurs.each do |joueur| %>
-          <tr>
-            <td><%= joueur.pseudo %></td>
-            <td>
-              <% if joueur.is_active %>
-                  Oui
-              <% else %>
-                  Non
-              <% end %>
-            </td>
-            <td align="right"><%= ressourceActionLinks joueur, joueur_path(joueur), edit_joueur_path(joueur) %></td>
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <ul class="list-inline panel-links" style="text-align:right;">
+        <li><%= link_to 'Nouveau', new_joueur_path, :class => 'btn btn-info', :title => "Ajouter un joueur" %></li>
+      </ul>
+    </div>
+    <div class="panel-body">
+      <table class="table table-hover table-stripped table-condensed">
+        <thead>
+        <tr>
+          <th>Pseudo</th>
+          <th>Est actif ?</th>
+          <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @joueurs.each do |joueur| %>
+            <tr>
+              <td><%= joueur.pseudo %></td>
+              <td>
+                <% if joueur.is_active %>
+                    Oui
+                <% else %>
+                    Non
+                <% end %>
+              </td>
+              <td align="right"><%= ressourceActionLinks joueur, joueur_path(joueur), edit_joueur_path(joueur) %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

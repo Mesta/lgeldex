@@ -9,6 +9,7 @@
     <file url="file://$PROJECT_DIR$/app/views/joueurs/index.html.erb" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/layouts/application.html.erb" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/versus/new.erb" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/versus_config/new.erb" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/db/seeds.rb" charset="UTF-8" />
   </component>
 </project>
