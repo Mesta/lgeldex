@@ -14,12 +14,12 @@ pseudos = ["Absys", "Acmefish", "Act", "Algor", "Animarthur", "Anniouchka", "ant
            "Liah", "Libertaire", "Lisouille", "Lukee", "Lycanmoi", "Lycano", "Malmhaus", "Manngue", "Margauw",
            "Milenko", "Moscow", "Nebbu", "Offset", "Ollyun", "Oxyde", "Patchenkoo", "Praskovia", "Preda", "Rejane",
            "Rickasley", "Ricks", "Rinaa", "Schizof", "Schkru", "Serleenaa", "Srie", "Stecat", "Slydenko", "Tallowisp",
-           "Strident", "Togame", "Vegeta", "Worldclass", "Yes"]
+           "Strident", "Togame", "Vegeta", "Vorapsak", "Worldclass", "Yes"]
 
 j = Array.new
 
 pseudos.each do |pseudo|
-  j.push(Joueur.create pseudo: pseudo    , is_active: true )
+  j.push(Joueur.create pseudo: pseudo , is_active: true )
 end
 
 c = Array.new
@@ -39,4 +39,5 @@ j.each do |jn|
   end
 end
 
-Admin.create! email: "aruno_black@hotmail.fr", password: "12Vorap%Da6Beast#", password_confirmation: "12Vorap%Da6Beast#"
+Admin.create! email: "aruno_black@hotmail.fr" , password: "12Vorap%Da6Beast#" , password_confirmation: "12Vorap%Da6Beast#"
+Admin.create! email: "contact@mesta.fr"       , password: "lgelmash42$"       , password_confirmation: "lgelmash42$"
