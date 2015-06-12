@@ -1,32 +1,32 @@
 <div class="text-center">
-  <%= pageTitle "Versus !" %>
+  <%= pageTitle "Versus" %>
+
+  <%= bootstrap_form_for @versus, url: versus_path, method: :post, html: {class: 'text-center'} do |f| %>
+      <h2><%= @versus.categorie.question %></h2>
+      <br/>
+
+      <%= f.radio_button :choix, @versus.joueur_1.id, label: @versus.joueur_1.pseudo %>
+      <%= f.radio_button :choix, @versus.joueur_2.id, label: @versus.joueur_2.pseudo %>
+      <br/>
+
+      <%= f.submit "Voter", class: "btn btn-success btn-lg" %>
+      <%= link_to "Passer", versus_path, class: "btn btn-default btn-lg" %>
+
+      <hr/>
+
+      <p>
+        Pour rappel, vous jouez avec les paramètres suivant :
+      <ul>
+        <li>Serious business :
+          <% if @versus.is_serious %>
+              <span class="label label-success">activé</span>
+          <% else %>
+              <span class="label label-danger">désactivé</span>
+          <% end %>
+          </span>
+        </li>
+      </ul>
+      <%= link_to "Reconfigurer", versus_config_path, class: 'btn btn-default' %>
+      </p>
+  <% end %>
 </div>
-
-<%= bootstrap_form_for @versus, url: versus_path, method: :post, html: {class: 'text-center'} do |f| %>
-    <h2><%= @versus.categorie.question %></h2>
-    <br/>
-
-    <%= f.radio_button :choix, @versus.joueur_1.id, label: @versus.joueur_1.pseudo %>
-    <%= f.radio_button :choix, @versus.joueur_2.id, label: @versus.joueur_2.pseudo %>
-    <br/>
-
-    <%= f.submit "Voter", class: "btn btn-success btn-lg" %>
-    <%= link_to "Passer", versus_path, class: "btn btn-default btn-lg" %>
-
-    <hr/>
-
-    <p>
-      Pour rappel, vous jouez avec les paramètres suivant :
-    <ul>
-      <li>Serious business :
-            <% if @versus.is_serious %>
-                <span class="label label-success">activé</span>
-            <% else %>
-                <span class="label label-danger">désactivé</span>
-            <% end %>
-            </span>
-      </li>
-    </ul>
-    <%= link_to "Reconfigurer", versus_config_path, class: 'btn btn-default' %>
-    </p>
-<% end %>
