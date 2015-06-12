@@ -6,6 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+modes = ["Normal écrit", "Sérieux écrit", "Oral"]
+
+modes.each do |mode|
+  Mode.create nom: mode
+end
+
 pseudos = ["Absys", "Acmefish", "Act", "Algor", "Animarthur", "Anniouchka", "antoinehar", "Anyah", "Appolina",
            "August", "Baloolours", "Blaked", "Bovin", "Breathease", "Bubu", "Callye", "Daphedel", "Desperefra",
            "Deusgladis", "Dingo", "Disturbed", "Easton", "Enayrlay", "Egerie", "Regence", "Eldone", "Eydoole",

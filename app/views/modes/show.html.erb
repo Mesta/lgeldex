@@ -1,0 +1,11 @@
+<div class="container">
+  <%= pageTitle 'Mode', 'Détails' %>
+
+  <p>
+    <strong>Nom :</strong>
+    <%= @mode.nom %>
+  </p>
+
+  <%= link_to 'Modifier', edit_mode_path(@mode), class: 'btn btn-default' %>
+  <%= link_to 'Retour', modes_path, class: 'btn btn-default' %>
+</div>

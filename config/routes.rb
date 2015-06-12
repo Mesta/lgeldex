@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   devise_for :admins, :skip => [:sessions, :registrations]
   as :admin do
     get 'connexion' => 'devise/sessions#new', :as => :new_admin_session
@@ -8,9 +9,11 @@ Rails.application.routes.draw do
   end
 
   scope "/admin" do
-    resources :admins    , path_names: { new: 'creer', edit: 'modifier', destroy: 'supprimer' }, path: 'administrateurs'
-    resources :categories, path_names: { new: 'creer', edit: 'modifier', destroy: 'supprimer' }
-    resources :joueurs   , path_names: { new: 'creer', edit: 'modifier', destroy: 'supprimer' }
+    resources :admins     , path_names: { new: 'creer', edit: 'modifier', destroy: 'supprimer' }, path: 'administrateurs'
+    resources :categories , path_names: { new: 'creer', edit: 'modifier', destroy: 'supprimer' }
+    resources :joueurs    , path_names: { new: 'creer', edit: 'modifier', destroy: 'supprimer' }
+    resources :modes      , path_names: { new: 'creer', edit: 'modifier', destroy: 'supprimer' }
+
 
     get     'suggestions'       , to: 'suggestions#index' , as: 'suggestions'
     delete  'suggestions/purger', to: 'suggestions#purger', as: 'purger_suggestions'

@@ -23,6 +23,8 @@
           <li><%= link_to "Suggérer", new_suggestion_path %></li>
         </ul>
 
+
+
         <ul class="nav navbar-nav navbar-right">
         <% if admin_signed_in? %>
 
@@ -44,6 +46,7 @@
 
               </li>
               <li class="divider"></li>
+              <li><%= link_to "Les modes de jeu", modes_path %></li>
               <li><%= link_to "Les catégories", categories_path %></li>
               <li class="divider"></li>
               <li><%= link_to "Déconnexion", destroy_admin_session_path, method: :delete %></li>

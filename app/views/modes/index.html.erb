@@ -1,0 +1,31 @@
+<div class="container">
+
+  <%= pageTitle 'Mode', 'Liste' %>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <ul class="list-inline panel-links" style="text-align:right;">
+        <li><%= link_to 'Nouveau', new_mode_path, :class => 'btn btn-info', :title => "Ajouter un mode" %></li>
+      </ul>
+    </div>
+    <div class="panel-body">
+      <table class="table table-hover table-stripped table-condensed">
+        <thead>
+        <tr>
+          <th>Nom de mode</th>
+          <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @modes.each do |mode| %>
+            <tr>
+              <td><%= mode.nom %></td>
+              <td align="right"><%= ressourceActionLinks mode, mode_path(mode), edit_mode_path(mode) %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
