@@ -11,10 +11,11 @@
         </div>
     <% end %>
 
-
     <%= f.text_field :pseudo %>
 
     <%= f.check_box :is_active, label: "Compte actif ?" %>
+
+    <%= f.collection_check_boxes :mode_ids, Mode.all, :id, :nom, prompt: "Modes de jeu", label: "Modes de jeu" %>
 
     <%= f.submit "Valider", class: 'btn btn-primary' %>
     <%= link_to "Retour", joueurs_path, class: 'btn btn-default' %>

@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   devise_for :admins, :skip => [:sessions, :registrations]
   as :admin do
     get 'connexion' => 'devise/sessions#new', :as => :new_admin_session

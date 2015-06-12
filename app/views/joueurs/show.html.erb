@@ -15,6 +15,27 @@
     <% end %>
   </p>
 
+  <p>
+    <% if @joueur.modes.count == 0 %>
+        <strong>Ce joueur ne pratique aucun mode de jeu.</strong>
+    <% else %>
+        <strong>
+          <% if @joueur.modes.count == 1 %>
+              Mode de jeu pratiqué :
+          <% else %>
+              Modes de jeu pratiqués :
+          <% end %>
+        </strong>
+
+        <% @joueur.modes.each do |mode| %>
+            <%= link_to mode do %>
+                <span class="label label-info"><%= mode.nom %></span>
+            <% end %>
+        <% end %>
+
+    <% end %>
+  </p>
+
   <%= link_to 'Modifier', edit_joueur_path(@joueur), class: 'btn btn-default' %>
   <%= link_to 'Retour', joueurs_path, class: 'btn btn-default' %>
 

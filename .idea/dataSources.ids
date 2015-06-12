@@ -44,10 +44,23 @@
       <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
+    <table name="joueur_modes" schema="" catalog="lgelmash_devel" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="joueur_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="mode_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
     <table name="joueurs" schema="" catalog="lgelmash_devel" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="pseudo" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="is_active" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6"/>
+      <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="modes" schema="" catalog="lgelmash_devel" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nom" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
@@ -103,6 +116,13 @@
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="pseudo" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="is_active" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6"/>
+      <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="modes" schema="" catalog="lgelmash_test" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nom" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>

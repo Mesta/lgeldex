@@ -17,7 +17,7 @@ class JoueursController < ApplicationController
   # GET /joueurs/new
   def new
     @joueur = Joueur.new
-    @joueur.categories.build
+    @joueur.modes.build
   end
 
   # GET /joueurs/1/edit
@@ -28,10 +28,12 @@ class JoueursController < ApplicationController
   # POST /joueurs.json
   def create
     @joueur = Joueur.new(joueur_params)
+
+=begin
     Category.all.each do |category|
       tmp = JoueurCategory.create category: category, joueur: @joueur, elo: 1200
     end
-
+=end
     respond_to do |format|
       if @joueur.save
         sugg = Suggestion.where(pseudo: joueur_params["pseudo"]).first
@@ -80,6 +82,6 @@ class JoueursController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def joueur_params
-      params.require(:joueur).permit(:pseudo, :is_active)
+      params.require(:joueur).permit(:pseudo, :is_active, { mode_ids: [] })
     end
 end

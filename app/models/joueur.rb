@@ -1,6 +1,6 @@
 class Joueur < ActiveRecord::Base
 
-  has_many :joueur_categories, dependent: :destroy
-  has_many :categories, :through => :joueur_categories
+  has_many :joueur_modes, dependent: :destroy
+  has_many :modes, :through => :joueur_modes
 
 end
