@@ -1,32 +1,34 @@
-<%= pageTitle "Suggestions", "Liste" %>
+<div class="container">
+  <%= pageTitle "Suggestions", "Liste" %>
 
 
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <ul class="list-inline panel-links" style="text-align:right;">
-      <li><%= link_to 'Purger', purger_suggestions_path, :class => 'btn btn-danger', :title => "Purger",
-                      method: :delete, data: { confirm: 'Êtes-vous sûr?' }
-      %></li>
-    </ul>
-  </div>
-  <div class="panel-body">
-    <table class="table table-hover table-stripped table-condensed">
-      <thead>
-      <tr>
-        <th>Pseudo</th>
-        <th></th>
-      </tr>
-      </thead>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <ul class="list-inline panel-links" style="text-align:right;">
+        <li><%= link_to 'Purger', purger_suggestions_path, :class => 'btn btn-danger', :title => "Purger",
+                        method: :delete, data: { confirm: 'Êtes-vous sûr?' }
+        %></li>
+      </ul>
+    </div>
+    <div class="panel-body">
+      <table class="table table-hover table-stripped table-condensed">
+        <thead>
+        <tr>
+          <th>Pseudo</th>
+          <th></th>
+        </tr>
+        </thead>
 
-      <tbody>
-      <% @suggestions.each do |suggestion| %>
-          <tr>
-            <td><%= suggestion.pseudo %></td>
-            <td align="right"><%= link_to "Créer", joueurs_path(:joueur => {:pseudo => suggestion.pseudo, :is_active => true}),
-                                          method: :post ,class: 'btn btn-default'%></td>
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
+        <tbody>
+        <% @suggestions.each do |suggestion| %>
+            <tr>
+              <td><%= suggestion.pseudo %></td>
+              <td align="right"><%= link_to "Créer", joueurs_path(:joueur => {:pseudo => suggestion.pseudo, :is_active => true}),
+                                            method: :post ,class: 'btn btn-default'%></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
