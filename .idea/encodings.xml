@@ -2,6 +2,7 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/app/controllers/admins_controller.rb" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/models/joueur_mode.rb" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/admins/index.html.erb" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/application/about.html.erb" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/application/classements.html.erb" charset="UTF-8" />

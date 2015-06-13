@@ -41,30 +41,46 @@
 
   <hr/>
 
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <ul class="list-inline panel-links" style="text-align:left;">
-        <li><h1 style="padding:0px;margin:0px"><small>Classement</small></h1></li>
-      </ul>
-    </div>
-    <div class="panel-body">
-      <table class="table table-hover table-stripped table-condensed">
-        <thead>
-        <tr>
-          <th>Pseudo</th>
-          <th>Elo</th>
-        </tr>
-        </thead>
+  <% if @joueur.modes.count > 0 %>
 
-        <tbody>
-        <% @classements.each do |classement| %>
-            <tr>
-              <td><%= link_to classement.category.nom, classement.category %></td></td>
-              <td><%= classement.elo %></td>
-            </tr>
+      <h1><small>Classements</small></h1>
+
+      <ul id="modes_tab" class="nav nav-tabs">
+        <% i = true %>
+        <% @joueur.modes.each do |mode| %>
+            <li><a href="#<%= mode.nom_without_space %>" data-toggle="tab"><%= mode.nom %></a></li>
         <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
+      </ul>
+
+      <div id="myTabContent" class="tab-content">
+        <% @joueur.joueur_modes.each do |jm| %>
+            <div class="tab-pane fade" id="<%= jm.mode.nom_without_space %>">
+
+              <table class="table table-hover table-stripped table-condensed">
+                <thead>
+                <tr>
+                  <th>Catégorie</th>
+                  <th>Elo</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <% jm.joueur_modes_categories.each do |classement| %>
+                    <tr>
+                      <td><%= link_to classement.category.nom, classement.category %></td></td>
+                      <td><%= classement.elo %></td>
+                    </tr>
+                <% end %>
+                </tbody>
+              </table>
+            </div>
+        <% end %>
+      </div>
+
+      <script>
+          $("a[href=#<%= @joueur.joueur_modes[0].mode.nom_without_space %>]").trigger('click')
+      </script>
+
+  <% end %>
+
 </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 601) do
+ActiveRecord::Schema.define(version: 500) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -34,23 +34,29 @@ ActiveRecord::Schema.define(version: 601) do
   create_table "categories", force: :cascade do |t|
     t.string   "nom",        limit: 255
     t.string   "question",   limit: 255
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-    t.boolean  "is_serious", limit: 1,   default: true
-  end
-
-  create_table "joueur_categories", force: :cascade do |t|
-    t.integer  "joueur_id",   limit: 4
-    t.integer  "category_id", limit: 4
-    t.integer  "elo",         limit: 4
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.boolean  "is_serious", limit: 1,   default: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   create_table "joueur_modes", force: :cascade do |t|
     t.integer "joueur_id", limit: 4
     t.integer "mode_id",   limit: 4
   end
+
+  add_index "joueur_modes", ["joueur_id"], name: "fk_rails_bfe92b57a1", using: :btree
+  add_index "joueur_modes", ["mode_id"], name: "fk_rails_65ae70cc1d", using: :btree
+
+  create_table "joueur_modes_categories", force: :cascade do |t|
+    t.integer  "joueur_mode_id", limit: 4
+    t.integer  "category_id",    limit: 4
+    t.integer  "elo",            limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "joueur_modes_categories", ["category_id"], name: "fk_rails_936563693f", using: :btree
+  add_index "joueur_modes_categories", ["joueur_mode_id"], name: "fk_rails_d6ba801438", using: :btree
 
   create_table "joueurs", force: :cascade do |t|
     t.string   "pseudo",     limit: 255
@@ -71,4 +77,8 @@ ActiveRecord::Schema.define(version: 601) do
     t.datetime "updated_at",             null: false
   end
 
+  add_foreign_key "joueur_modes", "joueurs", on_delete: :cascade
+  add_foreign_key "joueur_modes", "modes", on_delete: :cascade
+  add_foreign_key "joueur_modes_categories", "categories", on_delete: :cascade
+  add_foreign_key "joueur_modes_categories", "joueur_modes", on_delete: :cascade
 end

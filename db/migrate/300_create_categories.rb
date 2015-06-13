@@ -3,6 +3,7 @@ class CreateCategories < ActiveRecord::Migration
     create_table :categories do |t|
       t.string :nom
       t.string :question
+      t.boolean :is_serious, default: false
 
       t.timestamps null: false
     end

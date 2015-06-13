@@ -11,7 +11,6 @@ class JoueursController < ApplicationController
   # GET /joueurs/1
   # GET /joueurs/1.json
   def show
-    @classements = JoueurCategory.where(joueur_id: @joueur.id)
   end
 
   # GET /joueurs/new
