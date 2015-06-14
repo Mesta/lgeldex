@@ -2,15 +2,16 @@
 <%= pageTitle "Classements" %>
 </div>
 
-<% @classements.each do |categories| %>
-    <span id="<%= categories[0].category.nom %>"></span>
+<% @modes.each do |nom| %>
+    <% byebug %>
+    <span id="<%= nom %>"></span>
 
     <div class="container-fluid categorie" >
 
       <div class="panel panel-default">
         <div class="panel-heading">
           <ul class="list-inline panel-links text-center">
-            <li><h2><%= categories[0].category.nom %></h2></li>
+            <li><h2><%= nom %></h2></li>
           </ul>
         </div>
 
@@ -29,7 +30,7 @@
               <% while cpt < 15 do %>
                   <tr>
                     <td align="right"><i>#<%= cpt + 1 %></i></td>
-                    <td><%= categories[cpt].joueur.pseudo %></td>
+                    <td><%= categorie[cpt].joueur_mode.joueur.pseudo %></td>
                   </tr>
                   <% cpt = cpt + 1 %>
               <% end %>
@@ -51,7 +52,7 @@
               <% while cpt < 30 do %>
                   <tr>
                     <td align="right"><i>#<%= cpt + 1 %></i></td>
-                    <td><%= categories[cpt].joueur.pseudo %></td>
+                    <td><%= categorie[cpt].joueur_mode.joueur.pseudo %></td>
                   </tr>
                   <% cpt = cpt + 1 %>
               <% end %>
@@ -73,7 +74,7 @@
               <% while cpt < 45 do %>
                   <tr>
                     <td align="right"><i>#<%= cpt + 1 %></i></td>
-                    <td><%= categories[cpt].joueur.pseudo %></td>
+                    <td><%= categorie[cpt].joueur_mode.joueur.pseudo %></td>
                   </tr>
                   <% cpt = cpt + 1 %>
               <% end %>
@@ -95,7 +96,7 @@
               <% while cpt < 60 do %>
                   <tr>
                     <td align="right"><i>#<%= cpt + 1 %></i></td>
-                    <td><%= categories[cpt].joueur.pseudo %></td>
+                    <td><%= categorie[cpt].joueur_mode.joueur.pseudo %></td>
                   </tr>
                   <% cpt = cpt + 1 %>
               <% end %>

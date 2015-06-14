@@ -8,12 +8,14 @@ class VersusForm
   attr_accessor :choix
 
   attr_accessor :is_serious
+  attr_accessor :mode
 
   validates_presence_of :categorie
   validates_presence_of :joueurs
 
-  def initialize(is_serious)
+  def initialize(is_serious, mode)
     self.is_serious = is_serious
+    self.mode = mode
   end
 
   def config(categorie = nil, joueurs = {})
@@ -30,9 +32,9 @@ class VersusForm
     end
 
     if joueurs.empty?
-      joueurs = Joueur.where(is_active: true).order("rand()").first(2)
-      self.joueur_1 = joueurs[0]
-      self.joueur_2 = joueurs[1]
+      joueurs = JoueurMode.where(mode: self.mode).order("rand()").first(2)
+      self.joueur_1 = Joueur.where(id: joueurs[0].joueur_id).first()
+      self.joueur_2 = Joueur.where(id: joueurs[1].joueur_id).first()
 
     else
       self.joueur_1 = Joueur.find(joueurs[0])
@@ -67,8 +69,11 @@ class VersusForm
 
   def update_elo
     # Get elo score for the current categorie & players
-    jc1 = JoueurCategory.where(joueur_id: joueur_1.id, category_id: categorie.id).first
-    jc2 = JoueurCategory.where(joueur_id: joueur_2.id, category_id: categorie.id).first
+    jm1 = JoueurMode.where(joueur_id: joueur_1.id, mode: self.mode).first
+    jm2 = JoueurMode.where(joueur_id: joueur_2.id, mode: self.mode).first
+
+    jc1 = JoueurModesCategory.where(joueur_mode_id: jm1.id, category_id: categorie.id).first
+    jc2 = JoueurModesCategory.where(joueur_mode_id: jm2.id, category_id: categorie.id).first
 
     elo_joueur_1 = jc1.elo
     elo_joueur_2 = jc2.elo

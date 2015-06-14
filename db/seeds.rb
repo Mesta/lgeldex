@@ -23,10 +23,19 @@ end
 
 jm = Array.new
 jm.push(JoueurMode.create joueur: j[0], mode: m[0])
+jm.push(JoueurMode.create joueur: j[1], mode: m[0])
+jm.push(JoueurMode.create joueur: j[2], mode: m[0])
+jm.push(JoueurMode.create joueur: j[3], mode: m[0])
+jm.push(JoueurMode.create joueur: j[4], mode: m[0])
+jm.push(JoueurMode.create joueur: j[5], mode: m[0])
 jm.push(JoueurMode.create joueur: j[0], mode: m[1])
 jm.push(JoueurMode.create joueur: j[1], mode: m[1])
+jm.push(JoueurMode.create joueur: j[3], mode: m[1])
+jm.push(JoueurMode.create joueur: j[5], mode: m[1])
 jm.push(JoueurMode.create joueur: j[1], mode: m[2])
 jm.push(JoueurMode.create joueur: j[2], mode: m[2])
+jm.push(JoueurMode.create joueur: j[3], mode: m[2])
+jm.push(JoueurMode.create joueur: j[4], mode: m[2])
 
 c = Array.new
 c.push(Category.create nom: 'Loup'          , question: 'Qui a les dents les plus longues ?', is_serious: true)

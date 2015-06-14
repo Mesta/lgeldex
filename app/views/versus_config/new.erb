@@ -1,24 +1,28 @@
+<%= stylesheet_link_tag "versus", debug: true %>
+
 <div class="text-center">
   <%= pageTitle "Versus", "Configuration" %>
 
-
-  <%= bootstrap_form_for @versus_config, url: versus_config_path, method: :post, html: {class: 'text-center'} do |f| %>
-      <%= f.check_box :is_serious do %>
-          Serious business
-        <span class="has-hover" data-toggle="tooltip" title="Ne voter que pour les catégories dites sérieuses
-            <% Category.where(is_serious: true).each do |cat| %>
-                - <%= cat.nom %>
-            <% end %>">
-        <i class="glyphicon glyphicon-question-sign"></i>
-        </span>
-      <% end %>
+  <div class="form_versus_config center-block">
+    <%= bootstrap_form_for @versus_config, url: versus_config_path, method: :post, html: {class: 'text-center'} do |f| %>
 
 
+        <%= f.select :mode, Mode.all.collect {|p| [ p.nom, p.id ] },
+            { label: 'Mode de jeu<span class="has-hover" data-toggle="tooltip" title="Ne voter que pour des joueurs qui participent au mode de jeu choisi.">
+            <i class="glyphicon glyphicon-question-sign"></i></span>'.html_safe }, { class: "selectpicker" } %>
 
-      <br/>
+        <%= f.check_box :is_serious do %>
+            Serious business
+            <span class="has-hover" data-toggle="tooltip" title="Ne voter que pour les catégories dites sérieuses
+                <% Category.where(is_serious: true).each do |cat| %>
+                    - <%= cat.nom %>
+                <% end %>">
+            <i class="glyphicon glyphicon-question-sign"></i>
+            </span>
+        <% end %>
 
-      <%= f.submit "Valider", class: "btn btn-success btn-lg" %>
-  <% end %>
+        <%= f.submit "Valider", class: "btn btn-success btn-lg" %>
+    <% end %>
+  </div>
 </div>
-
 <script>$(".has-hover").tooltip({placement: "right"});</script>

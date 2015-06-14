@@ -13,10 +13,11 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Classements
               <span class="caret"></span></a>
 
+
             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-              <% categories = Category.all.order(:nom) %>
-              <% categories.each do |category| %>
-                  <li><%= link_to category.nom, classements_path(anchor: category.nom) %></a></li>
+              <% modes = Mode.all.order(:nom) %>
+              <% modes.each do |mode| %>
+                  <li><%= link_to mode.nom, classements_path(mode.nom) %></a></li>
               <% end %>
             </ul>
           </li>

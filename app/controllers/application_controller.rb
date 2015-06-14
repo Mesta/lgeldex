@@ -7,11 +7,15 @@ class ApplicationController < ActionController::Base
   end
 
   def classements
-    @classements = Array.new
-    categories = Category.all
-    categories.each do |category|
-      @classements.push(JoueurCategory.where(category_id: category.id).order(elo: :DESC).first(60))
-    end
+    mode = params["nom"]
+    byebug
+    @classements = Category.includes(:joueur_modes_category).joins(joueur_modes_category: :joueur_mode)
+
+    @classements = JoueurMode.includes(:joueur).joins(:mode).where('modes.nom' => mode)
+
+    #joueur_mode_id: JoueurMode.
+    #    where(mode_id: Mode.where(nom: params["nom"])))
+
   end
 
   def about

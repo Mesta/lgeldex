@@ -9,7 +9,7 @@ class VersusConfigController < ApplicationController
     @versus_config = VersusConfigForm.new
 
     if @versus_config.update(versus_config_params)
-      session[:current_user_id] = { "is_serious" => @versus_config.is_serious }
+      session[:current_user_id] = { "is_serious" => @versus_config.is_serious,  "mode" => @versus_config.mode }
       redirect_to versus_path
     else
       flash[:danger] = "La configuration a échoué. On recommence !"
@@ -19,6 +19,6 @@ class VersusConfigController < ApplicationController
 
   private
   def versus_config_params
-    params.require(:versus_config_form).permit(:is_serious)
+    params.require(:versus_config_form).permit(:is_serious, :mode)
   end
 end
