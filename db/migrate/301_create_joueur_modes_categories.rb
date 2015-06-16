@@ -1,8 +1,8 @@
 class CreateJoueurModesCategories < ActiveRecord::Migration
   def change
     create_table :joueur_modes_categories do |t|
-      t.integer :joueur_mode_id
-      t.integer :category_id
+      t.integer :joueur_mode_id, null: false
+      t.integer :category_id, null: false
 
       t.integer :elo
 

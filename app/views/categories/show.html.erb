@@ -1,51 +1,56 @@
 <div class="container">
-<%= pageTitle "Catégorie", "Détails" %>
+  <%= pageTitle "Catégorie", "Détails" %>
 
-<p>
-  <strong>Nom:</strong>
-  <%= @category.nom %>
-</p>
+  <p>
+    <strong>Nom:</strong>
+    <%= @category.nom %>
+  </p>
 
-<p>
-  <strong>Question:</strong>
-  <%= @category.question %>
-</p>
+  <p>
+    <strong>Question:</strong>
+    <%= @category.question %>
+  </p>
 
-<% if @category.is_serious %>
-  <p>Cette catégorie est sérieuse.</p>
-<% else %>
-  <p>Cette catégorie n'est pas sérieuse.</p>
-<% end %>
+  <p>
+    <strong>Description:</strong>
+    <%= @category.description %>
+  </p>
 
-<%= link_to 'Modifier', edit_category_path(@category), class: 'btn btn-default' %>
-<%= link_to 'Retour', categories_path, class: 'btn btn-default' %>
+  <% if @category.is_serious %>
+      <p>Cette catégorie est sérieuse.</p>
+  <% else %>
+      <p>Cette catégorie n'est pas sérieuse.</p>
+  <% end %>
 
-<hr/>
+  <%= link_to 'Modifier', edit_category_path(@category), class: 'btn btn-default' %>
+  <%= link_to 'Retour', categories_path, class: 'btn btn-default' %>
 
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <ul class="list-inline panel-links" style="text-align:left;">
-      <li><h1 style="padding:0px;margin:0px"><small>Classement</small></h1></li>
-    </ul>
+  <hr/>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <ul class="list-inline panel-links" style="text-align:left;">
+        <li><h1 style="padding:0px;margin:0px"><small>Classement</small></h1></li>
+      </ul>
+    </div>
+    <div class="panel-body">
+      <table class="table table-hover table-stripped table-condensed">
+        <thead>
+        <tr>
+          <th>Pseudo</th>
+          <th>Elo</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @classements.each do |classement| %>
+            <tr>
+              <td><%= link_to classement.joueur_mode.joueur.pseudo, classement.joueur_mode.joueur %></td>
+              <td><%= classement.elo %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
-  <div class="panel-body">
-    <table class="table table-hover table-stripped table-condensed">
-      <thead>
-      <tr>
-        <th>Pseudo</th>
-        <th>Elo</th>
-      </tr>
-      </thead>
-
-      <tbody>
-      <% @classements.each do |classement| %>
-          <tr>
-            <td><%= link_to classement.joueur.pseudo, classement.joueur %></td>
-            <td><%= classement.elo %></td>
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
-  </div>
-</div>
 </div>

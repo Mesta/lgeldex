@@ -1,19 +1,6 @@
 <%= bootstrap_form_for(@mode) do |f| %>
-  <% if @mode.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@mode.errors.count, "error") %> prohibited this mode from being saved:</h2>
-
-      <ul>
-      <% @mode.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
     <%= f.text_field :nom %>
 
     <%= f.submit "Valider", class: 'btn btn-primary' %>
     <%= link_to "Retour", modes_path, class: 'btn btn-default' %>
-
 <% end %>

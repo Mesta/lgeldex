@@ -1,7 +1,7 @@
 class CreateSuggestions < ActiveRecord::Migration
   def change
     create_table :suggestions do |t|
-      t.string :pseudo
+      t.string :pseudo, null: false
 
       t.timestamps null: false
     end

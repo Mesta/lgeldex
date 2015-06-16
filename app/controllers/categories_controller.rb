@@ -11,13 +11,13 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @classements = JoueurCategory.where(category_id: @category.id ).order(elo: :DESC)
+    @classements = JoueurModesCategory.where(category_id: @category.id ).order(elo: :DESC)
   end
 
   # GET /categories/new
   def new
     @category = Category.new
-    @category.joueurs.build
+    @category.joueur_modes.build
   end
 
   # GET /categories/1/edit
@@ -28,12 +28,14 @@ class CategoriesController < ApplicationController
   # POST /categories.json
   def create
     @category = Category.new(category_params)
-    Joueur.all.each do |joueur|
-      JoueurCategory.create joueur: joueur, category: @category, elo: 1200
-    end
 
     respond_to do |format|
       if @category.save
+
+        JoueurMode.all.each do |jm|
+          JoueurModesCategory.create joueur_mode: jm, category: @category, elo: 1200
+        end
+
         format.html { redirect_to @category, notice: 'La catégorie a été créée avec succès.' }
         format.json { render :show, status: :created, location: @category }
       else
@@ -75,6 +77,6 @@ class CategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
-      params.require(:category).permit(:nom, :question, :is_serious)
+      params.require(:category).permit(:nom, :question, :description, :is_serious)
     end
 end

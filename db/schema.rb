@@ -32,47 +32,48 @@ ActiveRecord::Schema.define(version: 500) do
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
   create_table "categories", force: :cascade do |t|
-    t.string   "nom",        limit: 255
-    t.string   "question",   limit: 255
-    t.boolean  "is_serious", limit: 1,   default: false
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.string   "nom",         limit: 255,                 null: false
+    t.string   "question",    limit: 255,                 null: false
+    t.string   "description", limit: 255
+    t.boolean  "is_serious",  limit: 1,   default: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
 
   create_table "joueur_modes", force: :cascade do |t|
-    t.integer "joueur_id", limit: 4
-    t.integer "mode_id",   limit: 4
+    t.integer "joueur_id", limit: 4, null: false
+    t.integer "mode_id",   limit: 4, null: false
   end
 
-  add_index "joueur_modes", ["joueur_id"], name: "fk_rails_bfe92b57a1", using: :btree
-  add_index "joueur_modes", ["mode_id"], name: "fk_rails_65ae70cc1d", using: :btree
+  add_index "joueur_modes", ["joueur_id"], name: "fk_rails_2876401069", using: :btree
+  add_index "joueur_modes", ["mode_id"], name: "fk_rails_85ed343c3a", using: :btree
 
   create_table "joueur_modes_categories", force: :cascade do |t|
-    t.integer  "joueur_mode_id", limit: 4
-    t.integer  "category_id",    limit: 4
+    t.integer  "joueur_mode_id", limit: 4, null: false
+    t.integer  "category_id",    limit: 4, null: false
     t.integer  "elo",            limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
 
-  add_index "joueur_modes_categories", ["category_id"], name: "fk_rails_936563693f", using: :btree
-  add_index "joueur_modes_categories", ["joueur_mode_id"], name: "fk_rails_d6ba801438", using: :btree
+  add_index "joueur_modes_categories", ["category_id"], name: "fk_rails_6c8351852e", using: :btree
+  add_index "joueur_modes_categories", ["joueur_mode_id"], name: "fk_rails_0a0e8e5347", using: :btree
 
   create_table "joueurs", force: :cascade do |t|
-    t.string   "pseudo",     limit: 255
+    t.string   "pseudo",     limit: 255, null: false
     t.boolean  "is_active",  limit: 1
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
   create_table "modes", force: :cascade do |t|
-    t.string   "nom",        limit: 255
+    t.string   "nom",        limit: 255, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
   create_table "suggestions", force: :cascade do |t|
-    t.string   "pseudo",     limit: 255
+    t.string   "pseudo",     limit: 255, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
