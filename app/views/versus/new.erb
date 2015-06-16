@@ -14,19 +14,22 @@
 
       <hr/>
 
-      <p>
-        Pour rappel, vous jouez avec les paramètres suivant :
-      <ul>
-        <li>Serious business :
-          <% if @versus.is_serious %>
-              <span class="label label-success">activé</span>
-          <% else %>
-              <span class="label label-danger">désactivé</span>
-          <% end %>
-          </span>
-        </li>
-      </ul>
-      <%= link_to "Reconfigurer", versus_config_path, class: 'btn btn-default' %>
-      </p>
+      <div id="versus_config">
+        <p>
+          Pour rappel, vous jouez avec les paramètres suivant :
+        <ul>
+          <li>Mode de jeu : <span class="label label-info"><%= Mode.find(@versus.mode).nom %></span></li>
+          <li>Serious business :
+            <% if @versus.is_serious %>
+                <span class="label label-success">activé</span>
+            <% else %>
+                <span class="label label-danger">désactivé</span>
+            <% end %>
+            </span>
+          </li>
+        </ul>
+        <%= link_to "Reconfigurer", versus_config_path, class: 'btn btn-default' %>
+        </p>
+      </div>
   <% end %>
 </div>

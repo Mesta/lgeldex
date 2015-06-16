@@ -1,13 +1,13 @@
 <div class="text-center">
-<%= pageTitle "Classements" %>
+  <%= pageTitle "Classements" %>
 </div>
 
-<% @modes.each do |nom| %>
-    <% byebug %>
+<% nbParCol = 15 %>
+
+<% @classements.each do |nom, classement| %>
     <span id="<%= nom %>"></span>
 
     <div class="container-fluid categorie" >
-
       <div class="panel panel-default">
         <div class="panel-heading">
           <ul class="list-inline panel-links text-center">
@@ -16,96 +16,47 @@
         </div>
 
         <div class="panel-body">
-          <div class="col-md-3">
-            <table class="table table-hover table-stripped table-condensed">
-              <thead>
-              <tr>
-                <th></th>
-                <th>Pseudo</th>
-              </tr>
-              </thead>
-
-              <tbody>
-              <% cpt = 0 %>
-              <% while cpt < 15 do %>
+          <%
+             nbCol = Integer(classement.count/nbParCol)
+             if nbCol < 1
+               nbCol = 1
+             elsif nbCol > 4
+               nbCol = 4
+             end
+             col = 0
+             while col < nbCol do
+          %>
+              <div class="col-sm-<%= 12/nbCol %> col-md-<%= 12/nbCol %> col-lg-<%= 12/nbCol %>">
+                <table class="table table-hover table-stripped table-condensed">
+                  <thead>
                   <tr>
-                    <td align="right"><i>#<%= cpt + 1 %></i></td>
-                    <td><%= categorie[cpt].joueur_mode.joueur.pseudo %></td>
+                    <th></th>
+                    <th>Pseudo</th>
                   </tr>
-                  <% cpt = cpt + 1 %>
-              <% end %>
-              </tbody>
-            </table>
-          </div>
+                  </thead>
 
-          <div class="col-md-3">
-            <table class="table table-hover table-stripped table-condensed">
-              <thead>
-              <tr>
-                <th></th>
-                <th>Pseudo</th>
-              </tr>
-              </thead>
-
-              <tbody>
-              <% cpt = 15 %>
-              <% while cpt < 30 do %>
-                  <tr>
-                    <td align="right"><i>#<%= cpt + 1 %></i></td>
-                    <td><%= categorie[cpt].joueur_mode.joueur.pseudo %></td>
-                  </tr>
-                  <% cpt = cpt + 1 %>
-              <% end %>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="col-md-3">
-            <table class="table table-hover table-stripped table-condensed">
-              <thead>
-              <tr>
-                <th></th>
-                <th>Pseudo</th>
-              </tr>
-              </thead>
-
-              <tbody>
-              <% cpt = 30 %>
-              <% while cpt < 45 do %>
-                  <tr>
-                    <td align="right"><i>#<%= cpt + 1 %></i></td>
-                    <td><%= categorie[cpt].joueur_mode.joueur.pseudo %></td>
-                  </tr>
-                  <% cpt = cpt + 1 %>
-              <% end %>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="col-md-3">
-            <table class="table table-hover table-stripped table-condensed">
-              <thead>
-              <tr>
-                <th></th>
-                <th>Pseudo</th>
-              </tr>
-              </thead>
-
-              <tbody>
-              <% cpt = 45 %>
-              <% while cpt < 60 do %>
-                  <tr>
-                    <td align="right"><i>#<%= cpt + 1 %></i></td>
-                    <td><%= categorie[cpt].joueur_mode.joueur.pseudo %></td>
-                  </tr>
-                  <% cpt = cpt + 1 %>
-              <% end %>
-              </tbody>
-            </table>
-          </div>
+                  <tbody>
+                  <% cpt = 0 %>
+                  <% while cpt < nbParCol and cpt < classement.count do %>
+                      <tr>
+                        <td align="right"><i>#<%= cpt %></i></td>
+                        <td><%= classement[cpt].joueur_mode.joueur.pseudo %></td>
+                      </tr>
+                      <% cpt = cpt + 1 %>
+                  <% end %>
+                  </tbody>
+                </table>
+              </div>
+          <%
+             col = col + 1
+             end
+          %>
         </div>
-        <div class="panel-footer text-center"><div class="btn btn-default btn-lg">Où suis-je ?</div></div>
+
+        <div class="panel-footer text-center"><div class="btn btn-default btn-lg">Classement entier</div></div>
       </div>
     </div>
-
 <% end %>
+
+
+

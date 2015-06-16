@@ -8,14 +8,15 @@ class ApplicationController < ActionController::Base
 
   def classements
     mode = params["nom"]
-    byebug
-    @classements = Category.includes(:joueur_modes_category).joins(joueur_modes_category: :joueur_mode)
+    @classements = Hash.new
 
-    @classements = JoueurMode.includes(:joueur).joins(:mode).where('modes.nom' => mode)
-
-    #joueur_mode_id: JoueurMode.
-    #    where(mode_id: Mode.where(nom: params["nom"])))
-
+    Category.order(is_serious: :DESC, nom: :ASC).each do |categorie|
+      @classements[categorie.nom] = JoueurModesCategory
+                                        .joins(joueur_mode: :mode)
+                                        .includes(joueur_mode: :joueur)
+                                        .where("modes.nom" => mode, category_id: categorie.id)
+                                        .order(elo: :DESC)
+    end
   end
 
   def about

@@ -59,17 +59,21 @@
               <table class="table table-hover table-stripped table-condensed">
                 <thead>
                 <tr>
+                  <th></th>
                   <th>Catégorie</th>
                   <th>Elo</th>
                 </tr>
                 </thead>
 
                 <tbody>
-                <% jm.joueur_modes_categories.each do |classement| %>
+                <% i = 1 %>
+                <% jm.joueur_modes_categories.order(elo: :DESC).each do |classement| %>
                     <tr>
+                      <td align="right">#<%= i %></td>
                       <td><%= link_to classement.category.nom, classement.category %></td></td>
                       <td><%= classement.elo %></td>
                     </tr>
+                <% i = i + 1 %>
                 <% end %>
                 </tbody>
               </table>
