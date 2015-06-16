@@ -40,7 +40,15 @@
                   <% while cpt < nbParCol and cpt < classement.count do %>
                       <tr>
                         <td align="right"><i>#<%= cpt %></i></td>
-                        <td><%= classement[cpt].joueur_mode.joueur.pseudo %></td>
+                        <td>
+                          <% joueur = classement[cpt].joueur_mode.joueur %>
+                          <%= joueur.pseudo %>
+                          <% if not joueur.is_active %>
+                              <span class="has-hover" data-toggle="tooltip" title="Ce joueur est inactif">
+                                 <i class="glyphicon glyphicon-flag"></i>
+                              </span>
+                          <% end %>
+                        </td>
                       </tr>
                       <% cpt = cpt + 1 %>
                   <% end %>
@@ -58,5 +66,6 @@
     </div>
 <% end %>
 
+<script>$(".has-hover").tooltip({placement: "right"});</script>
 
 
