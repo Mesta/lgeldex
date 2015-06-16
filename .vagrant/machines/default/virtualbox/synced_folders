@@ -1,1 +1,1 @@
-{"virtualbox":{"/home/vagrant/web":{"guestpath":"/home/vagrant/web","hostpath":"F:/projets/lgelmash_rails","disabled":false},"/vagrant":{"guestpath":"/vagrant","hostpath":"F:/projets/lgelmash_rails","disabled":false}}}
+{"virtualbox":{"/home/vagrant/web":{"guestpath":"/home/vagrant/web","hostpath":"/Users/Jeremy/workspace/lgelmash_rails","disabled":false},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/Jeremy/workspace/lgelmash_rails","disabled":false}}}
