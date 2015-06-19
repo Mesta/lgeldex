@@ -32,6 +32,8 @@ gem 'virtus'
 
 gem 'devise'
 
+gem 'paperclip'
+
 gem "recaptcha", :require => "recaptcha/rails"
 
 group :development, :test do

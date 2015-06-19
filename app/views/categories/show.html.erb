@@ -22,6 +22,11 @@
       <p>Cette catégorie n'est pas sérieuse.</p>
   <% end %>
 
+  <p>
+    <strong>Icône</strong>
+    <%= image_tag @category.icone.url(:icone) %>
+  </p>
+
   <%= link_to 'Modifier', edit_category_path(@category), class: 'btn btn-default' %>
   <%= link_to 'Retour', categories_path, class: 'btn btn-default' %>
 

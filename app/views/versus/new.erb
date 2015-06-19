@@ -2,12 +2,20 @@
   <%= pageTitle "Versus" %>
 
   <%= bootstrap_form_for @versus, url: versus_path, method: :post, html: {class: 'text-center'} do |f| %>
-      <h2><%= @versus.categorie.question %></h2>
+      <h2>
+        <% if not @versus.categorie.icone.nil? %>
+            <%= image_tag @versus.categorie.icone.url(:icone) %>
+        <% end %>
+        <%= @versus.categorie.question %></h2>
       <br/>
 
       <%= f.radio_button :choix, @versus.joueur_1.id, label: @versus.joueur_1.pseudo %>
       <%= f.radio_button :choix, @versus.joueur_2.id, label: @versus.joueur_2.pseudo %>
       <br/>
+
+      <p>
+        Indication : <%= @versus.categorie.description %>
+      </p>
 
       <%= f.submit "Voter", class: "btn btn-success btn-lg" %>
       <%= link_to "Passer", versus_path, class: "btn btn-default btn-lg" %>

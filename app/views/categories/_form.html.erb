@@ -1,9 +1,11 @@
-<%= bootstrap_form_for @category do |f| %>
+<%= bootstrap_form_for @category, :html => { :multipart => true } do |f| %>
     <%= f.text_field :nom %>
     <%= f.text_field :question %>
     <%= f.text_field :description %>
 
     <%= f.check_box :is_serious, label: "Serious business ?" %>
+
+    <%= f.file_field :icone, label: "Icône" %>
 
     <%= f.submit "Valider", class: 'btn btn-primary' %>
     <%= link_to "Retour", categories_path, class: 'btn btn-default' %>
