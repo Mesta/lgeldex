@@ -1,9 +1,10 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  pseudo: MyString
-  is_active: false
-
-two:
-  pseudo: MyString
-  is_active: false
+<% 100.times do |n| %>
+user_<%= n %>:
+  pseudo: <%= "user#{n}" %>
+  <% if n == 2 %>
+    is_active: false
+  <% else %>
+    is_active: true
+  <% end %>
+  
+<% end %>

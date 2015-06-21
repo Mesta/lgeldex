@@ -16,6 +16,7 @@
         </div>
 
         <div class="panel-body">
+
           <%
              nbCol = Integer(classement.count/nbParCol)
              if nbCol < 1
@@ -39,7 +40,7 @@
                   <% cpt = 0 %>
                   <% while cpt < nbParCol and cpt < classement.count do %>
                       <tr>
-                        <td align="right"><i>#<%= cpt %></i></td>
+                        <td align="right"><i>#<%= cpt + 1 %></i></td>
                         <td>
                           <% joueur = classement[cpt].joueur_mode.joueur %>
                           <%= joueur.pseudo %>

@@ -1,9 +1,11 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  nom: MyString
-  question: MyString
-
-two:
-  nom: MyString
-  question: MyString
+<% 5.times do |n| %>
+categorie_<%= n %>:
+  nom: <%= "mode#{n}" %>
+  question: <%= "Ceci est la question de la catégorie {n}" %>
+  description: <%= "Ceci est la description de la catégorie {n}" %>
+  <% if n == 1 and n == 2 %>
+    is_serious: true
+  <% else %>
+    is_serious : false
+  <% end %>
+<% end %>

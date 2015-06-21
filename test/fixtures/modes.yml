@@ -1,7 +1,4 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  nom: MyString
-
-two:
-  nom: MyString
+<% 5.times do |n| %>
+mode_<%= n %>:
+  nom: <%= "mode#{n}" %>
+<% end %>
