@@ -34,8 +34,6 @@ gem 'devise'
 
 gem 'paperclip'
 
-gem "recaptcha", :require => "recaptcha/rails"
-
 gem 'crash-watch'
 
 group :development, :test do
