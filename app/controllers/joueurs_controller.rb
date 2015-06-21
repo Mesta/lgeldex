@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class JoueursController < ApplicationController
   before_action :set_joueur, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_admin!

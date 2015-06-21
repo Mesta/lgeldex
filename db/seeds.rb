@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 Admin.create! email: "aruno_black@hotmail.fr" , password: "12Vorap%Da6Beast#" , password_confirmation: "12Vorap%Da6Beast#"
 Admin.create! email: "contact@mesta.fr"       , password: "lgelmash42$"       , password_confirmation: "lgelmash42$"
 

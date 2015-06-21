@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Joueur < ActiveRecord::Base
 
   # Les suppressions en cascades sont gérées grâce aux clés étrangères

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class JoueurModesCategory < ActiveRecord::Base
   belongs_to :joueur_mode
   belongs_to :category

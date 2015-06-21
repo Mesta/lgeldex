@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ModesController < ApplicationController
   before_action :set_mode, only: [:show, :edit, :update, :destroy]
 

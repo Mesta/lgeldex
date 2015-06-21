@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class VersusController < ApplicationController
 
   def new

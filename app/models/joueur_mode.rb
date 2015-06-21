@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class JoueurMode < ActiveRecord::Base
   after_create :create_joueur_modes_categories
 

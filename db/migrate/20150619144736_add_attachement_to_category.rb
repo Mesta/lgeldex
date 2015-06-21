@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddAttachementToCategory < ActiveRecord::Migration
   def change
 

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateJoueurModes < ActiveRecord::Migration
   def change
     create_table :joueur_modes do |t|

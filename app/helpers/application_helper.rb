@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ApplicationHelper
   def pageTitle (main_title, sub_title = "")
     output='<div class="page-header"><h1>' + main_title

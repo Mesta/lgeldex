@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class SuggestionsController < ApplicationController
     # GET /suggestions
   # GET /suggestions.json

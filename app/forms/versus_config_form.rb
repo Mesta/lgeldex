@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class VersusConfigForm
   include ActiveModel::Model
   require 'active_support'

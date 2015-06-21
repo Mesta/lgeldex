@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateJoueurs < ActiveRecord::Migration
   def change
     create_table :joueurs do |t|
