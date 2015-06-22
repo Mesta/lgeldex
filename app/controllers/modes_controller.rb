@@ -29,7 +29,7 @@ class ModesController < ApplicationController
 
     respond_to do |format|
       if @mode.save
-        format.html { redirect_to @mode, notice: 'Le mode de jeu a été créé avec succès.' }
+        format.html { redirect_to @mode, notice: 'Le mode de jeu a ?t? cr?? avec succ?s.' }
         format.json { render :show, status: :created, location: @mode }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class ModesController < ApplicationController
   def update
     respond_to do |format|
       if @mode.update(mode_params)
-        format.html { redirect_to @mode, notice: 'Le mode de jeu a été mis à jour.' }
+        format.html { redirect_to @mode, notice: 'Le mode de jeu a ?t? mis ? jour.' }
         format.json { render :show, status: :ok, location: @mode }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class ModesController < ApplicationController
   def destroy
     @mode.destroy
     respond_to do |format|
-      format.html { redirect_to modes_url, notice: 'Le mode de jeu a été supprimé.' }
+      format.html { redirect_to modes_url, notice: 'Le mode de jeu a ?t? supprim?.' }
       format.json { head :no_content }
     end
   end
