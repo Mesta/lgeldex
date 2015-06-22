@@ -26,6 +26,7 @@
              end
              col = 0
              while col < nbCol do
+               cpt = 0 + col * nbParCol
           %>
               <div class="col-sm-<%= 12/nbCol %> col-md-<%= 12/nbCol %> col-lg-<%= 12/nbCol %>">
                 <table class="table table-hover table-stripped table-condensed">
@@ -37,7 +38,6 @@
                   </thead>
 
                   <tbody>
-                  <% cpt = 0 + col * nbParCol %>
                   <% while cpt < nbParCol and cpt < classement.count do %>
                       <tr>
                         <td align="right"><i>#<%= cpt + 1 %></i></td>
