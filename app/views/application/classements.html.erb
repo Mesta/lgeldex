@@ -26,7 +26,7 @@
              end
              col = 0
              while col < nbCol do
-               cpt = 0 + col * nbParCol
+               cpt = 0
           %>
               <div class="col-sm-<%= 12/nbCol %> col-md-<%= 12/nbCol %> col-lg-<%= 12/nbCol %>">
                 <table class="table table-hover table-stripped table-condensed">
@@ -40,9 +40,9 @@
                   <tbody>
                   <% while cpt < nbParCol and cpt < classement.count do %>
                       <tr>
-                        <td align="right"><i>#<%= cpt + 1 %></i></td>
+                        <td align="right"><i>#<%= cpt + col * nbParCol + 1 %></i></td>
                         <td>
-                          <% joueur = classement[cpt].joueur_mode.joueur %>
+                          <% joueur = classement[cpt + col * nbParCol].joueur_mode.joueur %>
                           <%= joueur.pseudo %>
                           <% if not joueur.is_active %>
                               <span class="has-hover" data-toggle="tooltip" title="Ce joueur est inactif">
