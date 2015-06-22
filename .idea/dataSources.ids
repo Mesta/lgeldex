@@ -597,23 +597,23 @@
       <column name="is_serious" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
       <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
-      <column name="icon_file_name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="icon_content_type" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="icon_file_size" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <column name="icon_updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="icone_file_name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="icone_content_type" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="icone_file_size" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="icone_updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <exported-key name="fk_rails_102d8c9f8c" table="joueur_modes_categories" schema="" catalog="lgelmash_devel" columns="category_id"/>
+      <exported-key name="fk_rails_d4f222d3b6" table="joueur_modes_categories" schema="" catalog="lgelmash_devel" columns="category_id"/>
     </table>
     <table name="joueur_modes" schema="" catalog="lgelmash_devel" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="joueur_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="mode_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="fk_rails_1186300205" columns="mode_id" ref-table="modes" ref-schema="" ref-catalog="lgelmash_devel" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
-      <foreign-key name="fk_rails_db031b40ba" columns="joueur_id" ref-table="joueurs" ref-schema="" ref-catalog="lgelmash_devel" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
-      <exported-key name="fk_rails_7a4946449b" table="joueur_modes_categories" schema="" catalog="lgelmash_devel" columns="joueur_mode_id"/>
-      <index name="fk_rails_2876401069" unique="false" columns="joueur_id"/>
-      <index name="fk_rails_85ed343c3a" unique="false" columns="mode_id"/>
+      <foreign-key name="fk_rails_11246c34df" columns="mode_id" ref-table="modes" ref-schema="" ref-catalog="lgelmash_devel" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="fk_rails_f0f19214fe" columns="joueur_id" ref-table="joueurs" ref-schema="" ref-catalog="lgelmash_devel" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <exported-key name="fk_rails_e1ee96d052" table="joueur_modes_categories" schema="" catalog="lgelmash_devel" columns="joueur_mode_id"/>
+      <index name="fk_rails_2743fedd05" unique="false" columns="joueur_id"/>
+      <index name="fk_rails_3c919266db" unique="false" columns="mode_id"/>
     </table>
     <table name="joueur_modes_categories" schema="" catalog="lgelmash_devel" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -623,10 +623,10 @@
       <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="fk_rails_7a4946449b" columns="joueur_mode_id" ref-table="joueur_modes" ref-schema="" ref-catalog="lgelmash_devel" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
-      <foreign-key name="fk_rails_102d8c9f8c" columns="category_id" ref-table="categories" ref-schema="" ref-catalog="lgelmash_devel" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
-      <index name="fk_rails_0a0e8e5347" unique="false" columns="joueur_mode_id"/>
-      <index name="fk_rails_6c8351852e" unique="false" columns="category_id"/>
+      <foreign-key name="fk_rails_d4f222d3b6" columns="category_id" ref-table="categories" ref-schema="" ref-catalog="lgelmash_devel" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="fk_rails_e1ee96d052" columns="joueur_mode_id" ref-table="joueur_modes" ref-schema="" ref-catalog="lgelmash_devel" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <index name="fk_rails_afcac36c70" unique="false" columns="category_id"/>
+      <index name="fk_rails_de06cdaabd" unique="false" columns="joueur_mode_id"/>
     </table>
     <table name="joueurs" schema="" catalog="lgelmash_devel" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -635,7 +635,7 @@
       <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <exported-key name="fk_rails_db031b40ba" table="joueur_modes" schema="" catalog="lgelmash_devel" columns="joueur_id"/>
+      <exported-key name="fk_rails_f0f19214fe" table="joueur_modes" schema="" catalog="lgelmash_devel" columns="joueur_id"/>
     </table>
     <table name="modes" schema="" catalog="lgelmash_devel" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -643,7 +643,7 @@
       <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <exported-key name="fk_rails_1186300205" table="joueur_modes" schema="" catalog="lgelmash_devel" columns="mode_id"/>
+      <exported-key name="fk_rails_11246c34df" table="joueur_modes" schema="" catalog="lgelmash_devel" columns="mode_id"/>
     </table>
     <table name="schema_migrations" schema="" catalog="lgelmash_devel" type="TABLE">
       <column name="version" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
@@ -682,23 +682,23 @@
       <column name="is_serious" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
       <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
-      <column name="icon_file_name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="icon_content_type" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="icon_file_size" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <column name="icon_updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="icone_file_name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="icone_content_type" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="icone_file_size" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="icone_updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <exported-key name="fk_rails_7eb6c16548" table="joueur_modes_categories" schema="" catalog="lgelmash_test" columns="category_id"/>
+      <exported-key name="fk_rails_c8300c604a" table="joueur_modes_categories" schema="" catalog="lgelmash_test" columns="category_id"/>
     </table>
     <table name="joueur_modes" schema="" catalog="lgelmash_test" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="joueur_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="mode_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="fk_rails_0e4b99dce5" columns="mode_id" ref-table="modes" ref-schema="" ref-catalog="lgelmash_test" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
-      <foreign-key name="fk_rails_8cabde3930" columns="joueur_id" ref-table="joueurs" ref-schema="" ref-catalog="lgelmash_test" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
-      <exported-key name="fk_rails_dc5857f0d5" table="joueur_modes_categories" schema="" catalog="lgelmash_test" columns="joueur_mode_id"/>
-      <index name="fk_rails_2876401069" unique="false" columns="joueur_id"/>
-      <index name="fk_rails_85ed343c3a" unique="false" columns="mode_id"/>
+      <foreign-key name="fk_rails_591ce676ae" columns="mode_id" ref-table="modes" ref-schema="" ref-catalog="lgelmash_test" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="fk_rails_c7d753d16a" columns="joueur_id" ref-table="joueurs" ref-schema="" ref-catalog="lgelmash_test" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <exported-key name="fk_rails_f2c4a2daf0" table="joueur_modes_categories" schema="" catalog="lgelmash_test" columns="joueur_mode_id"/>
+      <index name="fk_rails_2743fedd05" unique="false" columns="joueur_id"/>
+      <index name="fk_rails_3c919266db" unique="false" columns="mode_id"/>
     </table>
     <table name="joueur_modes_categories" schema="" catalog="lgelmash_test" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -708,10 +708,10 @@
       <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="fk_rails_dc5857f0d5" columns="joueur_mode_id" ref-table="joueur_modes" ref-schema="" ref-catalog="lgelmash_test" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
-      <foreign-key name="fk_rails_7eb6c16548" columns="category_id" ref-table="categories" ref-schema="" ref-catalog="lgelmash_test" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
-      <index name="fk_rails_0a0e8e5347" unique="false" columns="joueur_mode_id"/>
-      <index name="fk_rails_6c8351852e" unique="false" columns="category_id"/>
+      <foreign-key name="fk_rails_c8300c604a" columns="category_id" ref-table="categories" ref-schema="" ref-catalog="lgelmash_test" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="fk_rails_f2c4a2daf0" columns="joueur_mode_id" ref-table="joueur_modes" ref-schema="" ref-catalog="lgelmash_test" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <index name="fk_rails_afcac36c70" unique="false" columns="category_id"/>
+      <index name="fk_rails_de06cdaabd" unique="false" columns="joueur_mode_id"/>
     </table>
     <table name="joueurs" schema="" catalog="lgelmash_test" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -720,7 +720,7 @@
       <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <exported-key name="fk_rails_8cabde3930" table="joueur_modes" schema="" catalog="lgelmash_test" columns="joueur_id"/>
+      <exported-key name="fk_rails_c7d753d16a" table="joueur_modes" schema="" catalog="lgelmash_test" columns="joueur_id"/>
     </table>
     <table name="modes" schema="" catalog="lgelmash_test" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -728,7 +728,7 @@
       <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <exported-key name="fk_rails_0e4b99dce5" table="joueur_modes" schema="" catalog="lgelmash_test" columns="mode_id"/>
+      <exported-key name="fk_rails_591ce676ae" table="joueur_modes" schema="" catalog="lgelmash_test" columns="mode_id"/>
     </table>
     <table name="schema_migrations" schema="" catalog="lgelmash_test" type="TABLE">
       <column name="version" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>

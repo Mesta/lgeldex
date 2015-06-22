@@ -9,13 +9,19 @@ class VersusController < ApplicationController
       redirect_to versus_config_path
     end
 
-    @versus = VersusForm.new(is_serious, mode)
-    @versus.config()
+    if JoueurMode.where(mode: mode).count >= 2
+      @versus = VersusForm.new(is_serious, mode)
+      @versus.config()
 
-    session[:current_user_id] = { "category"  => @versus.categorie.id,
-                                  "joueur_1"  => @versus.joueur_1.id,
-                                  "joueur_2"  => @versus.joueur_2.id,
-                                  "is_serious" => is_serious, "mode" => mode }
+      session[:current_user_id] = { "category"  => @versus.categorie.id,
+                                    "joueur_1"  => @versus.joueur_1.id,
+                                    "joueur_2"  => @versus.joueur_2.id,
+                                    "is_serious" => is_serious, "mode" => mode }
+    else
+      flash[:info] = "Il n'y a pas encore assez de joueurs. Un peu de patience, ça va venir :-)"
+      redirect_to versus_config_path
+    end
+
   end
 
   def create
