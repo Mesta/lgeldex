@@ -1,4 +1,4 @@
-# -*- encoding : utf-8 -*-
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150619144736) do
+ActiveRecord::Schema.define(version: 601) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -49,19 +49,19 @@ ActiveRecord::Schema.define(version: 20150619144736) do
     t.integer "mode_id",   limit: 4, null: false
   end
 
-  add_index "joueur_modes", ["joueur_id"], name: "fk_rails_2743fedd05", using: :btree
-  add_index "joueur_modes", ["mode_id"], name: "fk_rails_3c919266db", using: :btree
+  add_index "joueur_modes", ["joueur_id"], name: "fk_rails_8392a75f12", using: :btree
+  add_index "joueur_modes", ["mode_id"], name: "fk_rails_5fb5423b4c", using: :btree
 
   create_table "joueur_modes_categories", force: :cascade do |t|
-    t.integer  "joueur_mode_id", limit: 4, null: false
-    t.integer  "category_id",    limit: 4, null: false
-    t.integer  "elo",            limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.integer  "joueur_mode_id", limit: 4,  null: false
+    t.integer  "category_id",    limit: 4,  null: false
+    t.float    "elo",            limit: 24
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
-  add_index "joueur_modes_categories", ["category_id"], name: "fk_rails_afcac36c70", using: :btree
-  add_index "joueur_modes_categories", ["joueur_mode_id"], name: "fk_rails_de06cdaabd", using: :btree
+  add_index "joueur_modes_categories", ["category_id"], name: "fk_rails_e8f9e8f10b", using: :btree
+  add_index "joueur_modes_categories", ["joueur_mode_id"], name: "fk_rails_b1d7cd3feb", using: :btree
 
   create_table "joueurs", force: :cascade do |t|
     t.string   "pseudo",     limit: 255, null: false
@@ -80,6 +80,15 @@ ActiveRecord::Schema.define(version: 20150619144736) do
     t.string   "pseudo",     limit: 255, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "tops", force: :cascade do |t|
+    t.integer  "rang",       limit: 4,  null: false
+    t.integer  "joueur_id",  limit: 4,  null: false
+    t.integer  "mode_id",    limit: 4,  null: false
+    t.float    "elo",        limit: 24, null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   add_foreign_key "joueur_modes", "joueurs", on_delete: :cascade

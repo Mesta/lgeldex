@@ -5,7 +5,7 @@ class CreateJoueurModesCategories < ActiveRecord::Migration
       t.integer :joueur_mode_id, null: false
       t.integer :category_id, null: false
 
-      t.integer :elo
+      t.float :elo
 
       t.timestamps null: false
     end

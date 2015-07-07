@@ -35,4 +35,27 @@ module ApplicationHelper
     output += '</ul>'
     return output.html_safe
   end
+
+  def is_active_player? joueur
+    if not joueur.is_active
+      output = '<span class="has-hover" data-toggle="tooltip" title="Ce joueur est inactif">'
+      output += '<i class="glyphicon glyphicon-flag"></i>'
+      output += '</span>'
+      return output.html_safe
+    end
+  end
+
+  def is_top_player? joueur, mode
+    res = Top.where(joueur_id: joueur.id)
+              .where(mode_id: Mode.where(nom: mode))
+              .where(created_at: Top.maximum("created_at"))
+              .first()
+
+    if not res.nil?
+      output = '<span class="has-hover" data-toggle="tooltip" title="Numéro ' + String(res.rang) + ' au classement cette semaine !">'
+      output += '<i class="glyphicon glyphicon-star-empty"></i>'
+      output += '</span>'
+      return output.html_safe
+    end
+  end
 end

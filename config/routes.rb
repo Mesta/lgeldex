@@ -28,7 +28,8 @@ Rails.application.routes.draw do
   get  'versus', to: 'versus#new', as: 'versus'
   post 'versus', to: 'versus#create'
 
-  get 'classements/:nom', to: 'application#classements', as: 'classements'
+  get 'classements/:nom', to: 'application#classements',  as: 'classements'
+  get 'top-20/:nom',      to: 'application#top',          as: 'top'
 
   root to: 'application#accueil'
 end

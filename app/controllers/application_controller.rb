@@ -20,6 +20,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def top
+    mode = params["nom"]
+    @tops = Top.where("mode_id" => Mode.where("nom" => mode))
+                .where("created_at" => Top.maximum("created_at"))
+                .order(elo: :DESC)
+  end
+
   def about
   end
 end
