@@ -25,8 +25,9 @@ Rails.application.routes.draw do
   get  'versus/configuration', to: 'versus_config#new', as: 'versus_config'
   post 'versus/configuration', to: 'versus_config#create'
 
-  get  'versus', to: 'versus#new', as: 'versus'
-  post 'versus', to: 'versus#create'
+  get  'versus/passer', to: 'versus#passer',  as: 'versus_passer'
+  get  'versus',        to: 'versus#new',     as: 'versus'
+  post 'versus',        to: 'versus#create'
 
   get 'classements/:nom', to: 'application#classements',  as: 'classements'
   get 'top-20/:nom',      to: 'application#top',          as: 'top'

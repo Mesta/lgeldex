@@ -88,7 +88,5 @@ class TopStoredProcedures < ActiveRecord::Migration
       ON SCHEDULE EVERY 1 WEEK
     DO CALL buildTop20();
     __EOI
-
-
   end
 end

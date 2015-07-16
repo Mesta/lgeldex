@@ -26,12 +26,15 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Tops 20
               <span class="caret"></span></a>
 
-
             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
               <% modes = Mode.all.order(:nom) %>
               <% modes.each do |mode| %>
-                  <li><%= link_to mode.nom, top_path(mode.nom) %></a></li>
+                  <li><%= link_to mode.nom, top_path(mode.nom) %></li>
               <% end %>
+
+              <li class="divider"></li>
+
+              <li><a href="#">Historique</a></li>
             </ul>
           </li>
 
@@ -39,33 +42,33 @@
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-        <% if admin_signed_in? %>
+          <% if admin_signed_in? %>
 
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administration
-              <span class="caret"></span></a>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administration
+                  <span class="caret"></span></a>
 
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-              <li role="presentation" class="dropdown-header">Gestion des comptes</li>
-              <li><%= link_to "Administrateurs", admins_path %></a></li>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                  <li role="presentation" class="dropdown-header">Gestion des comptes</li>
+                  <li><%= link_to "Administrateurs", admins_path %></a></li>
 
-              <li class="divider"></li>
-              <li><%= link_to "Les joueurs", joueurs_path %></li>
-              <li>
-                <%= link_to suggestions_path do %>
-                    Les suggestions
-                    <span class="badge"><%= Suggestion.all.count %></span>
-                <% end %>
+                  <li class="divider"></li>
+                  <li><%= link_to "Les joueurs", joueurs_path %></li>
+                  <li>
+                    <%= link_to suggestions_path do %>
+                        Les suggestions
+                        <span class="badge"><%= Suggestion.all.count %></span>
+                    <% end %>
 
+                  </li>
+                  <li class="divider"></li>
+                  <li><%= link_to "Les modes de jeu", modes_path %></li>
+                  <li><%= link_to "Les catégories", categories_path %></li>
+                  <li class="divider"></li>
+                  <li><%= link_to "Déconnexion", destroy_admin_session_path, method: :delete %></li>
+                </ul>
               </li>
-              <li class="divider"></li>
-              <li><%= link_to "Les modes de jeu", modes_path %></li>
-              <li><%= link_to "Les catégories", categories_path %></li>
-              <li class="divider"></li>
-              <li><%= link_to "Déconnexion", destroy_admin_session_path, method: :delete %></li>
-            </ul>
-          </li>
-        <% end %>
+          <% end %>
         </ul>
 
       </div>

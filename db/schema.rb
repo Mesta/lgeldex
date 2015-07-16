@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 601) do
     t.integer "mode_id",   limit: 4, null: false
   end
 
-  add_index "joueur_modes", ["joueur_id"], name: "fk_rails_8392a75f12", using: :btree
-  add_index "joueur_modes", ["mode_id"], name: "fk_rails_5fb5423b4c", using: :btree
+  add_index "joueur_modes", ["joueur_id"], name: "fk_rails_860f878eea", using: :btree
+  add_index "joueur_modes", ["mode_id"], name: "fk_rails_260e169cd8", using: :btree
 
   create_table "joueur_modes_categories", force: :cascade do |t|
     t.integer  "joueur_mode_id", limit: 4,  null: false
@@ -60,8 +60,8 @@ ActiveRecord::Schema.define(version: 601) do
     t.datetime "updated_at",                null: false
   end
 
-  add_index "joueur_modes_categories", ["category_id"], name: "fk_rails_e8f9e8f10b", using: :btree
-  add_index "joueur_modes_categories", ["joueur_mode_id"], name: "fk_rails_b1d7cd3feb", using: :btree
+  add_index "joueur_modes_categories", ["category_id"], name: "fk_rails_96ce47e490", using: :btree
+  add_index "joueur_modes_categories", ["joueur_mode_id"], name: "fk_rails_06d9020c15", using: :btree
 
   create_table "joueurs", force: :cascade do |t|
     t.string   "pseudo",     limit: 255, null: false
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 601) do
     t.integer  "joueur_id",  limit: 4,  null: false
     t.integer  "mode_id",    limit: 4,  null: false
     t.float    "elo",        limit: 24, null: false
+    t.integer  "delta",      limit: 4
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
   end

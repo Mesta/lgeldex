@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source name="MySQL - @localhost" uuid="58af07f7-85eb-4480-a5ac-71a1d2f2889a">
+  <data-source name="MySQL - @localhost" uuid="9028a6bd-a721-47e8-8c8e-3cf52dc45083">
     <database-info product="MySQL" version="5.5.43-0ubuntu0.14.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
@@ -59,8 +59,8 @@
       <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="fk_rails_e8f9e8f10b" columns="category_id" ref-table="categories" ref-schema="" ref-catalog="lgelmash_devel" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
       <foreign-key name="fk_rails_b1d7cd3feb" columns="joueur_mode_id" ref-table="joueur_modes" ref-schema="" ref-catalog="lgelmash_devel" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="fk_rails_e8f9e8f10b" columns="category_id" ref-table="categories" ref-schema="" ref-catalog="lgelmash_devel" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
       <index name="fk_rails_b1d7cd3feb" unique="false" columns="joueur_mode_id"/>
       <index name="fk_rails_e8f9e8f10b" unique="false" columns="category_id"/>
     </table>
@@ -100,6 +100,7 @@
       <column name="elo" sqlType="FLOAT" precision="12" scale="0" nullable="false" jdbcType="7"/>
       <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="delta" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <procedure name="buildTop20" schema="" catalog="lgelmash_devel" type="1"/>
