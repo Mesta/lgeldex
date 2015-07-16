@@ -26,7 +26,6 @@ class VersusController < ApplicationController
   end
 
   def new
-    byebug
     # Check configuration of versus
     is_serious  = session[:current_user_id]["is_serious"]
     mode        = session[:current_user_id]["mode"]
