@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 601) do
     t.integer "mode_id",   limit: 4, null: false
   end
 
-  add_index "joueur_modes", ["joueur_id"], name: "fk_rails_860f878eea", using: :btree
-  add_index "joueur_modes", ["mode_id"], name: "fk_rails_260e169cd8", using: :btree
+  add_index "joueur_modes", ["joueur_id"], name: "fk_rails_f4a484e777", using: :btree
+  add_index "joueur_modes", ["mode_id"], name: "fk_rails_b8490fd1dd", using: :btree
 
   create_table "joueur_modes_categories", force: :cascade do |t|
     t.integer  "joueur_mode_id", limit: 4,  null: false
@@ -60,8 +60,8 @@ ActiveRecord::Schema.define(version: 601) do
     t.datetime "updated_at",                null: false
   end
 
-  add_index "joueur_modes_categories", ["category_id"], name: "fk_rails_96ce47e490", using: :btree
-  add_index "joueur_modes_categories", ["joueur_mode_id"], name: "fk_rails_06d9020c15", using: :btree
+  add_index "joueur_modes_categories", ["category_id"], name: "fk_rails_6103668b72", using: :btree
+  add_index "joueur_modes_categories", ["joueur_mode_id"], name: "fk_rails_c25dd936d5", using: :btree
 
   create_table "joueurs", force: :cascade do |t|
     t.string   "pseudo",     limit: 255, null: false
@@ -76,10 +76,19 @@ ActiveRecord::Schema.define(version: 601) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "suggestion_modes", force: :cascade do |t|
+    t.integer "suggestion_id", limit: 4, null: false
+    t.integer "mode_id",       limit: 4, null: false
+  end
+
+  add_index "suggestion_modes", ["mode_id"], name: "fk_rails_4ee38b8251", using: :btree
+  add_index "suggestion_modes", ["suggestion_id"], name: "fk_rails_464267e13b", using: :btree
+
   create_table "suggestions", force: :cascade do |t|
-    t.string   "pseudo",     limit: 255, null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "pseudo",     limit: 255,             null: false
+    t.integer  "nb_vote",    limit: 4,   default: 0
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   create_table "tops", force: :cascade do |t|
@@ -96,4 +105,6 @@ ActiveRecord::Schema.define(version: 601) do
   add_foreign_key "joueur_modes", "modes", on_delete: :cascade
   add_foreign_key "joueur_modes_categories", "categories", on_delete: :cascade
   add_foreign_key "joueur_modes_categories", "joueur_modes", on_delete: :cascade
+  add_foreign_key "suggestion_modes", "modes", on_delete: :cascade
+  add_foreign_key "suggestion_modes", "suggestions", on_delete: :cascade
 end

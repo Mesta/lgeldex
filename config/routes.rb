@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
   devise_for :admins, :skip => [:sessions, :registrations]
   as :admin do
-    get 'connexion' => 'devise/sessions#new', :as => :new_admin_session
-    post 'connexion' => 'devise/sessions#create', :as => :admin_session
-    delete 'deconnexion' => 'devise/sessions#destroy', :as => :destroy_admin_session
+    get     'connexion'   => 'devise/sessions#new',     :as => :new_admin_session
+    post    'connexion'   => 'devise/sessions#create',  :as => :admin_session
+    delete  'deconnexion' => 'devise/sessions#destroy', :as => :destroy_admin_session
   end
 
   scope "/admin" do
@@ -15,12 +15,15 @@ Rails.application.routes.draw do
     resources :modes      , path_names: { new: 'creer', edit: 'modifier', destroy: 'supprimer' }
 
 
-    get     'suggestions'       , to: 'suggestions#index' , as: 'suggestions'
-    delete  'suggestions/purger', to: 'suggestions#purger', as: 'purger_suggestions'
+    get    'suggestions'       ,   to: 'suggestions#index' , as: 'suggestions'
+    delete 'suggestions/purger',   to: 'suggestions#purger', as: 'purger_suggestions'
   end
 
-  get  'suggerer', to: 'suggestions#new'   , as: 'new_suggestion'
-  post 'suggerer', to: 'suggestions#create', as: 'create_suggestion'
+  get  'suggestions/rechercher'       , to: 'suggestions#search'  , as: 'search_suggestion'
+  post 'suggestions/rechercher'       , to: 'suggestions#search'  , as: 'find_suggestion'
+  get  'suggestions/soutenir/:pseudo' , to: 'suggestions#soutenir', as: 'soutenir_suggestion'
+  get  'suggestions/nouveau'          , to: 'suggestions#new'     , as: 'new_suggestion'
+  post 'suggestions'                  , to: 'suggestions#create'  , as: 'create_suggestion'
 
   get  'versus/configuration', to: 'versus_config#new', as: 'versus_config'
   post 'versus/configuration', to: 'versus_config#create'

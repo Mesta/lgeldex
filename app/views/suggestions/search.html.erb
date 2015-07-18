@@ -1,0 +1,49 @@
+<div class="container">
+  <%= pageTitle "Suggestion" %>
+
+  <div class="suggestion-search">
+    <%= form_tag search_suggestion_path, method: :post do |f| %>
+        <div class="input-group input-group-lg">
+          <%= text_field :suggestion, :pseudo, class: "form-control", placeholder: "Je suggère...", value: @search %>
+          <span class="input-group-btn">
+            <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+                <i class="glyphicon glyphicon-cog"> </i>
+            <% end %>
+          </span>
+        </div>
+    <% end %>
+  </div>
+
+  <% if not @suggestions.nil? %>
+      <div class="suggestion-resultat">
+        <% if @suggestions.empty? %>
+            <p class="text-center">
+              Ce joueur nous est inconnu, et personne ne l'a jamais suggéré...<br/><br/>
+              <%= link_to "Le recommander !", new_suggestion_path(), class: 'btn btn-primary' %>
+            </p>
+        <% else %>
+            <% cpt = 0 %>
+            <% @suggestions.each do |suggestion| %>
+                <% if (cpt%3) == 0 %>
+                    <div class="row">
+                <% end %>
+
+                <div class="col-xs-6 col-md-3">
+                  <div class="thumbnail">
+                    <h3><%= suggestion.pseudo %></h3>
+                    <p>Recommandé <%= suggestion.nb_vote %> fois</p>
+                    <%= link_to "Soutenir", soutenir_suggestion_path(suggestion.pseudo), class: 'btn btn-primary' %>
+                  </div>
+                </div>
+
+                <% if (cpt%3) == 2 or cpt == @suggestions.count %>
+                    </div>
+                <% end %>
+
+                <% cpt = cpt + 1 %>
+            <% end %>
+            </div>
+        <% end %>
+    </div>
+    <% end %>
+</div>

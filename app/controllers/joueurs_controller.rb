@@ -28,7 +28,6 @@ class JoueursController < ApplicationController
   # POST /joueurs.json
   def create
     @joueur = Joueur.new(joueur_params)
-
 =begin
     Category.all.each do |category|
       tmp = JoueurCategory.create category: category, joueur: @joueur, elo: 1200
@@ -71,6 +70,34 @@ class JoueursController < ApplicationController
     respond_to do |format|
       format.html { redirect_to joueurs_url, notice: 'Le joueur a été supprimé.' }
       format.json { head :no_content }
+    end
+  end
+
+  def create_from_suggestion
+    suggestion = Suggestion.find(params["suggestion_id"])
+    joueur = Joueur.new()
+    joueur.pseudo = suggestion.pseudo
+
+    if joueur.save
+      suggestion.modes.each do |mode|
+        tmp = JoueurMode.new()
+      end
+    end
+
+
+    respond_to do |format|
+      if @joueur.save
+        sugg = Suggestion.where(pseudo: joueur_params["pseudo"]).first
+        if not sugg.blank?
+          sugg.destroy
+        end
+
+        format.html { redirect_to @joueur, notice: 'Le joueur a été créé avec succès.' }
+        format.json { render :show, status: :created, location: @joueur }
+      else
+        format.html { render :new }
+        format.json { render json: @joueur.errors, status: :unprocessable_entity }
+      end
     end
   end
 
